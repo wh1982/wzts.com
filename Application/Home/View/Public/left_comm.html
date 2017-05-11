@@ -1,0 +1,266 @@
+<div class="page-sidebar-wrapper">
+                    <!-- BEGIN SIDEBAR -->
+                    <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+                    <!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+                    <div class="page-sidebar navbar-collapse collapse">
+                        <!-- BEGIN SIDEBAR MENU -->
+                        <!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
+                        <!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
+                        <!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
+                        <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+                        <!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
+                        <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+                        <ul class="page-sidebar-menu  page-header-fixed " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200" style="padding-top: 20px">
+                            <!-- DOC: To remove the sidebar toggler from the sidebar you just need to completely remove the below "sidebar-toggler-wrapper" LI element -->
+                            <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+                            <li class="sidebar-toggler-wrapper hide">
+                                <div class="sidebar-toggler">
+                                    <span></span>
+                                </div>
+                            </li>
+                            <!-- END SIDEBAR TOGGLER BUTTON -->
+                            <!-- DOC: To remove the search box from the sidebar you just need to completely remove the below "sidebar-search-wrapper" LI element -->
+                            <li class="sidebar-search-wrapper">
+                                <!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
+                                <!-- DOC: Apply "sidebar-search-bordered" class the below search form to have bordered search box -->
+                                <!-- DOC: Apply "sidebar-search-bordered sidebar-search-solid" class the below search form to have bordered & solid search box -->
+                                <form class="sidebar-search  " action="page_general_search_3.html" method="POST">
+                                    <a href="javascript:;" class="remove">
+                                        <i class="icon-close"></i>
+                                    </a>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Search...">
+                                        <span class="input-group-btn">
+                                            <a href="javascript:;" class="btn submit">
+                                                <i class="icon-magnifier"></i>
+                                            </a>
+                                        </span>
+                                    </div>
+                                </form>
+                                <!-- END RESPONSIVE QUICK SEARCH FORM -->
+                            </li>
+    
+           
+							
+				<!-- 循环start-->			
+                            <li class="nav-item {$left_f1}">
+                                <a href="javascript:;" class="nav-link nav-toggle">
+                                    <i class="icon-bar-chart"></i>
+                                    <span class="title">绩效数据</span>
+                                    <span class="arrow {$left_arrow1} "></span>
+                                </a>
+                                <ul class="sub-menu"  style="display:{$left_c1}">
+                                    <li class="nav-item {$left_cc1} ">
+                                        <a href='{:U("Jixiao/index")}' class="nav-link ">
+                                            <span class="title">产品部绩效</span>
+												<span class="selected"></span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item  {$left_cc2}">
+                                        <a href='{:U("Jixiao/shejibu")}' class="nav-link ">
+                                            <span class="title">设计部绩效</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item  {$left_cc3}">
+                                        <a href='{:U("Jixiao/kefu")}'class="nav-link ">
+                                            <span class="title">客服部绩效</span>
+                                        </a>
+                                    </li>									                                   
+                    
+                                </ul>
+                            </li>
+                <!-- 循环end -->
+                            
+ 				<!--		
+                            <li class="nav-item ">
+                                <a href="javascript:;" class="nav-link nav-toggle">
+                                    <i class="icon-bulb"></i>
+                                    <span class="title">售后退换货</span>
+                                    <span class="arrow"></span>
+                                </a>
+                                <ul class="sub-menu" >
+                                    <li class="nav-item  ">
+                                        <a href="cs_index.html" class="nav-link ">
+                                            <span class="title">明细</span>
+                                        </a>
+                                    </li>
+               				       <li class="nav-item  ">
+                                        <a href="cs_th.html" class="nav-link ">
+                                            <span class="title">退货率Top 10</span>
+                                        </a>
+                                    </li>
+									
+									<li class="nav-item  ">
+                                        <a href="cs_hh.html" class="nav-link ">
+                                            <span class="title">换货率Top 10</span>
+                                        </a>
+                                    </li>				                                   
+      									<li class="nav-item  ">
+                                        <a href="cs_fx.html" class="nav-link ">
+                                            <span class="title">好评返现</span>
+                                        </a>
+                                    </li>		
+									
+																		<li class="nav-item  ">
+                                        <a href="cs_cp.html" class="nav-link ">
+                                            <span class="title">差评率</span>
+                                        </a>
+                                    </li>		              
+                                </ul>
+                            </li>
+       
+  						
+                            <li class="nav-item ">
+                                <a href="javascript:;" class="nav-link nav-toggle">
+                                    <i class="icon-diamond"></i>
+                                    <span class="title">销售数据</span>
+                                    <span class="arrow  "></span>
+                                </a>
+                                <ul class="sub-menu" >
+                                    <li class="nav-item  ">
+                                        <a href="sale.html" class="nav-link ">
+                                            <span class="title">明细</span>
+										
+                                        </a>
+                                    </li>
+               				      <li class="nav-item  ">
+                                        <a href="sale_profit.html" class="nav-link ">
+                                            <span class="title">盈利Top 10</span>
+                                        </a>
+                                    </li>
+               				      <li class="nav-item  ">
+                                        <a href="sale_loss.html" class="nav-link ">
+                                            <span class="title">亏损Top 10</span>
+                                        </a>
+                                    </li>										
+													                                   
+                    
+                                </ul>
+                            </li>
+                                 
+                            
+                            
+		
+                            <li class="nav-item  ">
+                                <a href="javascript:;" class="nav-link nav-toggle">
+                                    <i class="icon-social-dribbble"></i>
+                                    <span class="title">物流未发货</span>
+                                    <span class="arrow "></span>
+                                </a>
+                                <ul class="sub-menu" >
+                                    <li class="nav-item  ">
+                                        <a href="wuliu_wfh.html" class="nav-link ">
+                                            <span class="title">当日22点未发货</span>
+                                        </a>
+                                    </li>
+               					 <li class="nav-item  ">
+                                        <a href="wuliu_qh.html" class="nav-link ">
+                                            <span class="title">缺货数据</span>
+                                        </a>
+                                    </li>			                                   
+                    
+                                </ul>
+                            </li>
+  
+                            
+     			
+                            <li class="nav-item  ">
+                                <a href="javascript:;" class="nav-link nav-toggle">
+                                    <i class="icon-briefcase"></i>
+                                    <span class="title">产品周转备货</span>
+                                    <span class="arrow"></span>
+                                </a>
+                                <ul class="sub-menu" >
+                                    <li class="nav-item  ">
+                                        <a href="cpzzbh.html" class="nav-link ">
+                                            <span class="title">明细</span>
+                                        </a>
+                                    </li>
+               						<li class="nav-item  ">
+                                        <a href="cpzzbh_chart.html" class="nav-link ">
+                                            <span class="title">图表</span>
+                                        </a>
+                                    </li>		                                   
+                    
+                                </ul>
+                            </li>
+	
+                            <li class="nav-item  ">
+                                <a href="javascript:;" class="nav-link nav-toggle">
+                                    <i class="icon-feed"></i>
+                                    <span class="title">排名流量监控</span>
+                                    <span class="arrow"></span>
+                                </a>
+                                <ul class="sub-menu" >
+                                    <li class="nav-item  ">
+                                        <a href="pro_kwd.html" class="nav-link ">
+                                            <span class="title">产品关键字查询修改</span>
+                                        </a>
+                                    </li>
+									<li class="nav-item  ">
+                                        <a href="pro_uv.html" class="nav-link ">
+                                            <span class="title">UV排名数据</span>
+                                        </a>
+                                    </li>
+									<li class="nav-item">
+    	                                 <a href="pro_chart.html" class="nav-link ">
+                                            <span class="title">数据报表(关键词下单量)</span>
+                                        </a>
+                                    </li>   
+									                   
+     									<li class="nav-item">
+    	                                 <a href="pro_chart2.html" class="nav-link ">
+                                            <span class="title">数据报表(盈亏)</span>
+                                        </a>
+                                    </li>                 
+                                </ul>
+                            </li>
+  		
+                            <li class="nav-item  ">
+                                <a href="javascript:;" class="nav-link nav-toggle">
+                                    <i class="icon-basket"></i>
+                                    <span class="title">供应商</span>
+                                    <span class="arrow"></span>
+                                </a>
+                                <ul class="sub-menu" >
+                                    <li class="nav-item  ">
+                                        <a href="supplier_pro.html" class="nav-link ">
+                                            <span class="title">品类</span>
+                                        </a>
+                                    </li>
+    	                            <li class="nav-item  ">
+                                        <a href="supplier_qh.html" class="nav-link ">
+                                            <span class="title">缺货次数</span>
+                                        </a>
+                                    </li> 
+					                  <li class="nav-item  ">
+                                        <a href="supplier_wfh.html" class="nav-link ">
+                                            <span class="title">今日未发货</span>
+                                        </a>
+                                    </li>	
+									                                    <li class="nav-item  ">
+                                        <a href="supplier_sh.html" class="nav-link ">
+                                            <span class="title">售后率</span>
+                                        </a>
+                                    </li>
+									                                    <li class="nav-item  ">
+                                        <a href="supplier_cp.html" class="nav-link ">
+                                            <span class="title">产品差评</span>
+                                        </a>
+                                    </li>	
+									                                    <li class="nav-item  ">
+                                        <a href="supplier_xssh.html" class="nav-link ">
+                                            <span class="title">销售售后</span>
+                                        </a>
+                                    </li>		                                  
+                    
+                                </ul>
+                            </li>
+     				      -->                      
+                            
+                        </ul>
+                        <!-- END SIDEBAR MENU -->
+                        <!-- END SIDEBAR MENU -->
+                    </div>
+                    <!-- END SIDEBAR -->
+                </div>

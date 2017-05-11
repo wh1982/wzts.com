@@ -1,0 +1,424 @@
+[ 2017-05-11T01:59:30+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000598s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000740s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000787s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000802s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000856s ]
+
+[ 2017-05-11T01:59:30+08:00 ] 127.0.0.1 /index.php/Home/Login/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000348s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000530s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000573s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000073s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000120s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006713s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006771s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000490s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000527s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000462s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000501s ]
+
+[ 2017-05-11T01:59:30+08:00 ] 127.0.0.1 /index.php/Home/Login/favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000440s ]
+
+[ 2017-05-11T01:59:34+08:00 ] 127.0.0.1 /index.php/Home/Login/login/act/check
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000348s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000476s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000530s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000032s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000072s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005261s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005320s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000303s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000341s ]
+
+[ 2017-05-11T01:59:36+08:00 ] 127.0.0.1 /index.php/Home/Jixiao/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000029s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000927s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001471s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001628s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000341s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000469s ]
+NOTIC: [8] Undefined variable: left_cc2 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\56a70f8565772373f1b2758557f93138.php 第 171 行.
+NOTIC: [8] Undefined variable: left_cc3 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\56a70f8565772373f1b2758557f93138.php 第 176 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.036799s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.036933s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000830s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000935s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001295s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001421s ]
+
+[ 2017-05-11T01:59:36+08:00 ] 127.0.0.1 /index.php/Home/Jixiao/favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000358s ]
+
+[ 2017-05-11T01:59:38+08:00 ] 127.0.0.1 /index.php/Home/Jixiao/ajax_jx_get_chanpinbu.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000356s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000521s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000562s ]
+SQL: SHOW COLUMNS FROM `lb_view_orders` [ RunTime:0.0077s ]
+SQL: SHOW COLUMNS FROM `lb_warehouse` [ RunTime:0.0057s ]
+SQL: SHOW COLUMNS FROM `sp_users` [ RunTime:0.0607s ]
+SQL: SHOW COLUMNS FROM `lbpa_sku` [ RunTime:0.0605s ]
+SQL: SELECT * FROM `lb_view_orders` WHERE (  1=1 and (TO_DAYS( created_time ) - TO_DAYS( jiandang_time ) <=90 ) 
+	   and oid_status='TRADE_FINISHED' and  (created_time >='2017-05-11 00:00:00' and created_time <='2017-05-12 00:00:00') ) ORDER BY created_time asc  [ RunTime:0.0832s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000685s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000745s ]
+
+[ 2017-05-11T01:59:38+08:00 ] 127.0.0.1 /index.php/Home/Jixiao/kefu.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000413s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000538s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000602s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000152s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000213s ]
+NOTIC: [8] Undefined variable: left_cc1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\f471f52a1dbbcab4fc02331dc89400bb.php 第 165 行.
+NOTIC: [8] Undefined variable: left_cc2 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\f471f52a1dbbcab4fc02331dc89400bb.php 第 171 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.016240s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016299s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000415s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000460s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000682s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000739s ]
+
+[ 2017-05-11T01:59:39+08:00 ] 127.0.0.1 /index.php/Home/Jixiao/ajax_jx_get_kefu.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000379s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000496s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000544s ]
+SQL: SHOW COLUMNS FROM `lb_jx_kefu` [ RunTime:0.0153s ]
+SQL: SHOW COLUMNS FROM `sp_users` [ RunTime:0.0616s ]
+SQL: SELECT * FROM `lb_jx_kefu` WHERE (  1=1 and (luru_dt >='2017-05-11 00:00:00' and luru_dt <='2017-05-12 00:00:00') ) ORDER BY luru_dt asc  [ RunTime:0.0045s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000787s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000847s ]
+
+[ 2017-05-11T02:00:24+08:00 ] 127.0.0.1 /index.php/Home/Jixiao/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000312s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000429s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000484s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000126s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000169s ]
+NOTIC: [8] Undefined variable: left_cc2 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\56a70f8565772373f1b2758557f93138.php 第 171 行.
+NOTIC: [8] Undefined variable: left_cc3 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\56a70f8565772373f1b2758557f93138.php 第 176 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013830s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013871s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000247s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000283s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000469s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000516s ]
+
+[ 2017-05-11T02:00:26+08:00 ] 127.0.0.1 /index.php/Home/Jixiao/ajax_jx_get_chanpinbu.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000340s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000457s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000502s ]
+SQL: SHOW COLUMNS FROM `lb_view_orders` [ RunTime:0.0349s ]
+SQL: SHOW COLUMNS FROM `lb_warehouse` [ RunTime:0.0210s ]
+SQL: SHOW COLUMNS FROM `sp_users` [ RunTime:0.0650s ]
+SQL: SHOW COLUMNS FROM `lbpa_sku` [ RunTime:0.0627s ]
+SQL: SELECT * FROM `lb_view_orders` WHERE (  1=1 and (TO_DAYS( created_time ) - TO_DAYS( jiandang_time ) <=90 ) 
+	   and oid_status='TRADE_FINISHED' and  (created_time >='2017-05-11 00:00:00' and created_time <='2017-05-12 00:00:00') ) ORDER BY created_time asc  [ RunTime:0.0604s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000992s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001064s ]
+
+[ 2017-05-11T02:03:23+08:00 ] 127.0.0.1 /index.php/Home/Jixiao/shejibu.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000633s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000856s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000927s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000197s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000275s ]
+NOTIC: [8] Undefined variable: left_cc1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\9b4d466d25feb25f94d91cd615594acd.php 第 165 行.
+NOTIC: [8] Undefined variable: left_cc3 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\9b4d466d25feb25f94d91cd615594acd.php 第 176 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.021987s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.022045s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000388s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000428s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000554s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000599s ]
+
+[ 2017-05-11T02:03:25+08:00 ] 127.0.0.1 /index.php/Home/Jixiao/ajax_jx_get_shejibu.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000349s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000419s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000461s ]
+SQL: SHOW COLUMNS FROM `lb_view_orders` [ RunTime:0.0382s ]
+SQL: SHOW COLUMNS FROM `lb_warehouse` [ RunTime:0.0238s ]
+SQL: SHOW COLUMNS FROM `sp_users` [ RunTime:0.0646s ]
+SQL: SHOW COLUMNS FROM `lbpa_sku` [ RunTime:0.0631s ]
+SQL: SELECT * FROM `lb_view_orders` WHERE (  1=1 and (TO_DAYS( created_time ) - TO_DAYS( jiandang_time ) <=60 ) 
+	and oid_status='TRADE_FINISHED' and  (created_time >='2017-05-11 00:00:00' and created_time <='2017-05-12 00:00:00') ) ORDER BY created_time asc  [ RunTime:0.0639s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000926s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000993s ]
+
+[ 2017-05-11T02:03:26+08:00 ] 127.0.0.1 /index.php/Home/Jixiao/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000350s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000447s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000492s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000143s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000195s ]
+NOTIC: [8] Undefined variable: left_cc2 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\56a70f8565772373f1b2758557f93138.php 第 171 行.
+NOTIC: [8] Undefined variable: left_cc3 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\56a70f8565772373f1b2758557f93138.php 第 176 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014023s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014065s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000272s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000308s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000539s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000593s ]
+
+[ 2017-05-11T02:03:27+08:00 ] 127.0.0.1 /index.php/Home/Jixiao/ajax_jx_get_chanpinbu.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000389s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000504s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000548s ]
+SQL: SHOW COLUMNS FROM `lb_view_orders` [ RunTime:0.0106s ]
+SQL: SHOW COLUMNS FROM `lb_warehouse` [ RunTime:0.0115s ]
+SQL: SHOW COLUMNS FROM `sp_users` [ RunTime:0.0693s ]
+SQL: SHOW COLUMNS FROM `lbpa_sku` [ RunTime:0.0810s ]
+SQL: SELECT * FROM `lb_view_orders` WHERE (  1=1 and (TO_DAYS( created_time ) - TO_DAYS( jiandang_time ) <=90 ) 
+	   and oid_status='TRADE_FINISHED' and  (created_time >='2017-05-11 00:00:00' and created_time <='2017-05-12 00:00:00') ) ORDER BY created_time asc  [ RunTime:0.0365s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000897s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000966s ]
+
+[ 2017-05-11T02:03:48+08:00 ] 127.0.0.1 /index.php/Home/Jixiao/ajax_jx_get_chanpinbu.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000412s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000622s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000675s ]
+SQL: SHOW COLUMNS FROM `lb_view_orders` [ RunTime:0.0443s ]
+SQL: SHOW COLUMNS FROM `lb_warehouse` [ RunTime:0.0184s ]
+SQL: SHOW COLUMNS FROM `sp_users` [ RunTime:0.0684s ]
+SQL: SHOW COLUMNS FROM `lbpa_sku` [ RunTime:0.0691s ]
+SQL: SELECT * FROM `lb_view_orders` WHERE (  1=1 and (TO_DAYS( created_time ) - TO_DAYS( jiandang_time ) <=90 ) 
+	   and oid_status='TRADE_FINISHED' and  (created_time >='2017-04-01 00:00:00' and created_time <='2017-05-02 00:00:00') ) ORDER BY created_time asc  [ RunTime:0.3202s ]
+SQL: SELECT `user_login` FROM `sp_users` WHERE ( id=26 ) LIMIT 1   [ RunTime:0.0726s ]
+SQL: SELECT `user_login` FROM `sp_users` WHERE ( id=28 ) LIMIT 1   [ RunTime:0.0670s ]
+SQL: SELECT `user_login` FROM `sp_users` WHERE ( id=28 ) LIMIT 1   [ RunTime:0.0754s ]
+SQL: SELECT `user_login` FROM `sp_users` WHERE ( id=4 ) LIMIT 1   [ RunTime:0.0672s ]
+SQL: SELECT `user_login` FROM `sp_users` WHERE ( id=26 ) LIMIT 1   [ RunTime:0.0666s ]
+SQL: SELECT `user_login` FROM `sp_users` WHERE ( id=28 ) LIMIT 1   [ RunTime:0.0672s ]
+SQL: SELECT `user_login` FROM `sp_users` WHERE ( id=28 ) LIMIT 1   [ RunTime:0.0676s ]
+SQL: SELECT `user_login` FROM `sp_users` WHERE ( id=28 ) LIMIT 1   [ RunTime:0.0712s ]
+SQL: SELECT `user_login` FROM `sp_users` WHERE ( id=26 ) LIMIT 1   [ RunTime:0.0677s ]
+SQL: SELECT `user_login` FROM `sp_users` WHERE ( id=26 ) LIMIT 1   [ RunTime:0.0672s ]
+SQL: SELECT `user_login` FROM `sp_users` WHERE ( id=408 ) LIMIT 1   [ RunTime:0.0676s ]
+SQL: SELECT `user_login` FROM `sp_users` WHERE ( id=26 ) LIMIT 1   [ RunTime:0.0681s ]
+SQL: SELECT `user_login` FROM `sp_users` WHERE ( id=26 ) LIMIT 1   [ RunTime:0.0684s ]
+SQL: SELECT `user_login` FROM `sp_users` WHERE ( id=4 ) LIMIT 1   [ RunTime:0.0671s ]
+SQL: SELECT `user_login` FROM `sp_users` WHERE ( id=28 ) LIMIT 1   [ RunTime:0.0674s ]
+SQL: SELECT `user_login` FROM `sp_users` WHERE ( id=28 ) LIMIT 1   [ RunTime:0.0674s ]
+SQL: SELECT `user_login` FROM `sp_users` WHERE ( id=408 ) LIMIT 1   [ RunTime:0.0673s ]
+SQL: SELECT `user_login` FROM `sp_users` WHERE ( id=408 ) LIMIT 1   [ RunTime:0.0670s ]
+SQL: SELECT `user_login` FROM `sp_users` WHERE ( id=28 ) LIMIT 1   [ RunTime:0.0698s ]
+SQL: SELECT `user_login` FROM `sp_users` WHERE ( id=28 ) LIMIT 1   [ RunTime:0.0690s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000588s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000674s ]
+
+[ 2017-05-11T02:04:45+08:00 ] 127.0.0.1 /index.php/Home/Jixiao/shejibu.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000362s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000466s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000522s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000241s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000371s ]
+NOTIC: [8] Undefined variable: left_cc1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\9b4d466d25feb25f94d91cd615594acd.php 第 165 行.
+NOTIC: [8] Undefined variable: left_cc3 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\9b4d466d25feb25f94d91cd615594acd.php 第 176 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014156s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014203s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000296s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000333s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000484s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000531s ]
+
+[ 2017-05-11T02:04:46+08:00 ] 127.0.0.1 /index.php/Home/Jixiao/ajax_jx_get_shejibu.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000374s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000659s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000704s ]
+SQL: SHOW COLUMNS FROM `lb_view_orders` [ RunTime:0.0118s ]
+SQL: SHOW COLUMNS FROM `lb_warehouse` [ RunTime:0.0129s ]
+SQL: SHOW COLUMNS FROM `sp_users` [ RunTime:0.0697s ]
+SQL: SHOW COLUMNS FROM `lbpa_sku` [ RunTime:0.0688s ]
+SQL: SELECT * FROM `lb_view_orders` WHERE (  1=1 and (TO_DAYS( created_time ) - TO_DAYS( jiandang_time ) <=60 ) 
+	and oid_status='TRADE_FINISHED' and  (created_time >='2017-05-11 00:00:00' and created_time <='2017-05-12 00:00:00') ) ORDER BY created_time asc  [ RunTime:0.0465s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000615s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000662s ]
+
+[ 2017-05-11T02:04:50+08:00 ] 127.0.0.1 /index.php/Home/Jixiao/kefu.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000390s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000506s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000557s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000130s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000185s ]
+NOTIC: [8] Undefined variable: left_cc1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\f471f52a1dbbcab4fc02331dc89400bb.php 第 165 行.
+NOTIC: [8] Undefined variable: left_cc2 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\f471f52a1dbbcab4fc02331dc89400bb.php 第 171 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014267s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014314s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000320s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000361s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000518s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000567s ]
+
+[ 2017-05-11T02:04:52+08:00 ] 127.0.0.1 /index.php/Home/Jixiao/ajax_jx_get_kefu.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000497s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000458s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000499s ]
+SQL: SHOW COLUMNS FROM `lb_jx_kefu` [ RunTime:0.0103s ]
+SQL: SHOW COLUMNS FROM `sp_users` [ RunTime:0.0651s ]
+SQL: SELECT * FROM `lb_jx_kefu` WHERE (  1=1 and (luru_dt >='2017-05-11 00:00:00' and luru_dt <='2017-05-12 00:00:00') ) ORDER BY luru_dt asc  [ RunTime:0.0042s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000556s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000599s ]
+
+[ 2017-05-11T02:05:06+08:00 ] 127.0.0.1 /index.php/Home/Jixiao/ajax_jx_get_kefu.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000385s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000493s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000540s ]
+SQL: SHOW COLUMNS FROM `lb_jx_kefu` [ RunTime:0.0253s ]
+SQL: SHOW COLUMNS FROM `sp_users` [ RunTime:0.0649s ]
+SQL: SELECT * FROM `lb_jx_kefu` WHERE (  1=1 and (luru_dt >='2017-03-31 00:00:00' and luru_dt <='2017-04-02 00:00:00') ) ORDER BY luru_dt asc  [ RunTime:0.0035s ]
+SQL: SELECT `user_login` FROM `sp_users` WHERE ( id=381 ) LIMIT 1   [ RunTime:0.0623s ]
+SQL: SHOW COLUMNS FROM `lb_config_jx_kefu` [ RunTime:0.0350s ]
+SQL: SELECT * FROM `lb_config_jx_kefu` WHERE ( qudao='天猫' ) LIMIT 1   [ RunTime:0.0067s ]
+SQL: SELECT `user_login` FROM `sp_users` WHERE ( id=381 ) LIMIT 1   [ RunTime:0.0637s ]
+SQL: SELECT * FROM `lb_config_jx_kefu` WHERE ( qudao='天猫' ) LIMIT 1   [ RunTime:0.0018s ]
+SQL: SELECT `user_login` FROM `sp_users` WHERE ( id=381 ) LIMIT 1   [ RunTime:0.0642s ]
+SQL: SELECT * FROM `lb_config_jx_kefu` WHERE ( qudao='天猫' ) LIMIT 1   [ RunTime:0.0022s ]
+SQL: SELECT `user_login` FROM `sp_users` WHERE ( id=381 ) LIMIT 1   [ RunTime:0.0634s ]
+SQL: SELECT * FROM `lb_config_jx_kefu` WHERE ( qudao='天猫' ) LIMIT 1   [ RunTime:0.0013s ]
+SQL: SELECT `user_login` FROM `sp_users` WHERE ( id=381 ) LIMIT 1   [ RunTime:0.0637s ]
+SQL: SELECT * FROM `lb_config_jx_kefu` WHERE ( qudao='天猫' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `user_login` FROM `sp_users` WHERE ( id=381 ) LIMIT 1   [ RunTime:0.0637s ]
+SQL: SELECT * FROM `lb_config_jx_kefu` WHERE ( qudao='天猫' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `user_login` FROM `sp_users` WHERE ( id=361 ) LIMIT 1   [ RunTime:0.0625s ]
+SQL: SELECT * FROM `lb_config_jx_kefu` WHERE ( qudao='天猫' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `user_login` FROM `sp_users` WHERE ( id=361 ) LIMIT 1   [ RunTime:0.0615s ]
+SQL: SELECT * FROM `lb_config_jx_kefu` WHERE ( qudao='天猫' ) LIMIT 1   [ RunTime:0.0007s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000863s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000930s ]
+
+[ 2017-05-11T02:05:29+08:00 ] 127.0.0.1 /index.php/Home/Jixiao/ajax_jx_get_kefu.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000492s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000522s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000565s ]
+SQL: SHOW COLUMNS FROM `lb_jx_kefu` [ RunTime:0.0293s ]
+SQL: SHOW COLUMNS FROM `sp_users` [ RunTime:0.0727s ]
+SQL: SELECT * FROM `lb_jx_kefu` WHERE (  1=1 and (luru_dt >='2017-04-01 00:00:00' and luru_dt <='2017-04-30 00:00:00') ) ORDER BY luru_dt asc  [ RunTime:0.0035s ]
+SQL: SELECT `user_login` FROM `sp_users` WHERE ( id=381 ) LIMIT 1   [ RunTime:0.0700s ]
+SQL: SHOW COLUMNS FROM `lb_config_jx_kefu` [ RunTime:0.0232s ]
+SQL: SELECT * FROM `lb_config_jx_kefu` WHERE ( qudao='天猫' ) LIMIT 1   [ RunTime:0.0038s ]
+SQL: SELECT `user_login` FROM `sp_users` WHERE ( id=381 ) LIMIT 1   [ RunTime:0.0694s ]
+SQL: SELECT * FROM `lb_config_jx_kefu` WHERE ( qudao='天猫' ) LIMIT 1   [ RunTime:0.0018s ]
+SQL: SELECT `user_login` FROM `sp_users` WHERE ( id=381 ) LIMIT 1   [ RunTime:0.0698s ]
+SQL: SELECT * FROM `lb_config_jx_kefu` WHERE ( qudao='天猫' ) LIMIT 1   [ RunTime:0.0009s ]
+SQL: SELECT `user_login` FROM `sp_users` WHERE ( id=381 ) LIMIT 1   [ RunTime:0.0698s ]
+SQL: SELECT * FROM `lb_config_jx_kefu` WHERE ( qudao='天猫' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `user_login` FROM `sp_users` WHERE ( id=381 ) LIMIT 1   [ RunTime:0.0701s ]
+SQL: SELECT * FROM `lb_config_jx_kefu` WHERE ( qudao='天猫' ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `user_login` FROM `sp_users` WHERE ( id=381 ) LIMIT 1   [ RunTime:0.0694s ]
+SQL: SELECT * FROM `lb_config_jx_kefu` WHERE ( qudao='天猫' ) LIMIT 1   [ RunTime:0.0009s ]
+SQL: SELECT `user_login` FROM `sp_users` WHERE ( id=361 ) LIMIT 1   [ RunTime:0.0680s ]
+SQL: SELECT * FROM `lb_config_jx_kefu` WHERE ( qudao='天猫' ) LIMIT 1   [ RunTime:0.0005s ]
+SQL: SELECT `user_login` FROM `sp_users` WHERE ( id=361 ) LIMIT 1   [ RunTime:0.0687s ]
+SQL: SELECT * FROM `lb_config_jx_kefu` WHERE ( qudao='天猫' ) LIMIT 1   [ RunTime:0.0005s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000681s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000734s ]
+
