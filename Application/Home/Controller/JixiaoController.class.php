@@ -519,6 +519,10 @@ class JixiaoController extends Controller
         $res=$this->get_kefu_tc("天猫",180);
         dump($res);
     }
+    public function test2()
+    {
+
+    }
 //all end	
 }
 ?>
