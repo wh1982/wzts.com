@@ -23,7 +23,13 @@ return array(
     'JD_APPKEY' =>'963452078B47F5076D7075801CC9078F',
 	'JD_SECRETKEY'=>'14a9aa6100cb4dfbb56ac5e1d5348380',
 	'JD_LB_TOKEN'=>'05455a8d-bf36-479d-8629-41737febb0ef',
-    
+    'ADMIN_AUTH_KEY'    => 'admin',
+    'USER_AUTH_ON'      => '1',
+    'USER_AUTH_TYPE'    => '1',//2为即时验证模式，别的数字为登陆验证
+    'RBAC_ROLE_TABLE'   => 'lb_rbac_role',
+    'RBAC_USER_TABLE'   => 'lb_rbac_role_user',
+    'RBAC_ACCESS_TABLE' => 'lb_rbac_access',
+    'RBAC_NODE_TABLE'   => 'lb_rbac_node',
 
 	
 );

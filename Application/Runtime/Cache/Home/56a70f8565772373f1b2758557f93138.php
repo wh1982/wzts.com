@@ -48,7 +48,7 @@
                 <div class="page-header-inner ">
                     <!-- BEGIN LOGO -->
                     <div class="page-logo" >
-                        <a href="index.html">
+                        <a href='?'>
                             <img src="/Public/assets/layouts/layout/img/logo2.png" alt="logo" class="logo-default"  style="margin:0px;"/> </a>
                         <div class="menu-toggler sidebar-toggler">
                             <span></span>
@@ -81,8 +81,8 @@
                             <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
                             <li class="dropdown dropdown-user">
                                 <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                                    <img alt="" class="img-circle" src="/Public/assets/layouts/layout/img/avatar3_small.jpg" />
-                                    <span class="username username-hide-on-mobile"> admin </span>
+                                    <!--<img alt="" class="img-circle" src="/Public/assets/layouts/layout/img/avatar3_small.jpg" />-->
+                                    <span class="username username-hide-on-mobile"><?php echo ($login_name); ?> </span>
                             
                                 </a>
                                 
@@ -91,7 +91,7 @@
                             <!-- BEGIN QUICK SIDEBAR TOGGLER -->
                             <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
                             <li class="dropdown dropdown-quick-sidebar-toggler">
-                                <a href='<?php echo U("Login/login");?>' class="dropdown-toggle">
+                                <a href='<?php echo U("Login/signout");?>' class="dropdown-toggle">
                                     <i class="icon-logout"></i>
                                 </a>
                             </li>
@@ -151,8 +151,33 @@
                                 </form>
                                 <!-- END RESPONSIVE QUICK SEARCH FORM -->
                             </li>
-    
-           
+                            <!- 用户权限管理-->
+                            <li class="nav-item <?php echo ($left_f0); ?>">
+                                <a href="javascript:;" class="nav-link nav-toggle">
+                                    <i class="icon-user"></i>
+                                    <span class="title">用户管理</span>
+                                    <span class="arrow <?php echo ($left_arrow0); ?> "></span>
+                                </a>
+                                <ul class="sub-menu"  style="display: <?php echo ($left_c0); ?>">
+                                    <li class="nav-item <?php echo ($left_c0_l1); ?> ">
+                                        <a href='<?php echo U("Access/index");?>' class="nav-link ">
+                                            <span class="title">用户列表</span>
+                                            <span class="selected"></span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item  <?php echo ($left_c0_l2); ?>">
+                                        <a href='#' class="nav-link ">
+                                            <span class="title">角色列表</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item  <?php echo ($left_c0_l3); ?>">
+                                        <a href='#' class="nav-link ">
+                                            <span class="title">节点列表</span>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </li>
 							
 				<!-- 循环start-->			
                             <li class="nav-item <?php echo ($left_f1); ?>">
@@ -161,20 +186,20 @@
                                     <span class="title">绩效数据</span>
                                     <span class="arrow <?php echo ($left_arrow1); ?> "></span>
                                 </a>
-                                <ul class="sub-menu"  style="display:<?php echo ($left_c1); ?>">
-                                    <li class="nav-item <?php echo ($left_cc1); ?> ">
+                                <ul class="sub-menu"  style="display: <?php echo ($left_c1); ?>">
+                                    <li class="nav-item <?php echo ($left_c1_l1); ?> ">
                                         <a href='<?php echo U("Jixiao/index");?>' class="nav-link ">
                                             <span class="title">产品部绩效</span>
 												<span class="selected"></span>
                                         </a>
                                     </li>
-                                    <li class="nav-item  <?php echo ($left_cc2); ?>">
+                                    <li class="nav-item  <?php echo ($left_c1_l2); ?>">
                                         <a href='<?php echo U("Jixiao/shejibu");?>' class="nav-link ">
                                             <span class="title">设计部绩效</span>
                                         </a>
                                     </li>
-                                    <li class="nav-item  <?php echo ($left_cc3); ?>">
-                                        <a href='<?php echo U("Jixiao/kefu");?>'class="nav-link ">
+                                    <li class="nav-item  <?php echo ($left_c1_l3); ?>">
+                                        <a href='<?php echo U("Jixiao/kefu");?>' class="nav-link ">
                                             <span class="title">客服部绩效</span>
                                         </a>
                                     </li>									                                   

@@ -1,8 +1,8 @@
 <?php
 namespace Home\Controller;
-use Think\Controller;
 
-class TaskController extends Controller
+
+class TaskController extends BaseController
 {
     public function index()
     {

@@ -3,7 +3,7 @@
                 <div class="page-header-inner ">
                     <!-- BEGIN LOGO -->
                     <div class="page-logo" >
-                        <a href="index.html">
+                        <a href='?'>
                             <img src="__ROOT__/Public/assets/layouts/layout/img/logo2.png" alt="logo" class="logo-default"  style="margin:0px;"/> </a>
                         <div class="menu-toggler sidebar-toggler">
                             <span></span>
@@ -36,8 +36,8 @@
                             <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
                             <li class="dropdown dropdown-user">
                                 <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                                    <img alt="" class="img-circle" src="__ROOT__/Public/assets/layouts/layout/img/avatar3_small.jpg" />
-                                    <span class="username username-hide-on-mobile"> admin </span>
+                                    <!--<img alt="" class="img-circle" src="__ROOT__/Public/assets/layouts/layout/img/avatar3_small.jpg" />-->
+                                    <span class="username username-hide-on-mobile">{$login_name} </span>
                             
                                 </a>
                                 
@@ -46,7 +46,7 @@
                             <!-- BEGIN QUICK SIDEBAR TOGGLER -->
                             <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
                             <li class="dropdown dropdown-quick-sidebar-toggler">
-                                <a href='{:U("Login/login")}' class="dropdown-toggle">
+                                <a href='{:U("Login/signout")}' class="dropdown-toggle">
                                     <i class="icon-logout"></i>
                                 </a>
                             </li>

@@ -1,8 +1,6 @@
 <?php
 namespace Home\Controller;
-use Think\Controller;
-
-class JixiaoController extends Controller
+class JixiaoController extends BaseController
 {
    public function index()
    {
@@ -10,7 +8,7 @@ class JixiaoController extends Controller
        $this->assign('left_f1',"open");
        $this->assign('left_arrow1',"open");
        $this->assign('left_c1',"block");
-       $this->assign('left_cc1',"open");
+       $this->assign('left_c1_l1',"open");
        $this->display('chanpinbu');
    }
 
@@ -19,7 +17,7 @@ class JixiaoController extends Controller
        $this->assign('left_f1',"open");
        $this->assign('left_arrow1',"open");
        $this->assign('left_c1',"block");
-       $this->assign('left_cc2',"open");
+       $this->assign('left_c1_l2',"open");
        $this->display();
 
    }
@@ -28,7 +26,7 @@ class JixiaoController extends Controller
         $this->assign('left_f1',"open");
         $this->assign('left_arrow1',"open");
         $this->assign('left_c1',"block");
-        $this->assign('left_cc3',"open");
+        $this->assign('left_c1_l3',"open");
         $this->display();
     }
    public function ajax_jx_get_chanpinbu()

@@ -6,7 +6,7 @@ class IndexController extends Controller
 {
    public function index()
    {    
-     header('Location: '.U("Login/login").'');
+     header('Location: '.U("Login/index").'');
    }
   
 //end	
