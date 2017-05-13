@@ -171,7 +171,7 @@
                                         </a>
                                     </li>
                                     <li class="nav-item  <?php echo ($left_c0_l3); ?>">
-                                        <a href='#' class="nav-link ">
+                                        <a href='<?php echo U("Access/node");?>' class="nav-link ">
                                             <span class="title">节点列表</span>
                                         </a>
                                     </li>
@@ -417,7 +417,7 @@
                             <i class="fa fa-circle"></i>
                         </li>
                         <li>
-                            <a href="###">创建用户</a>
+                            <a href="###">节点列表</a>
 
                         </li>
 
@@ -426,70 +426,119 @@
                 </div>
 
 
-                <h1 class="page-title" >创建用户
-                    <small></small>
-                </h1>
+                <h1 class="page-title" >节点列表
+                    <small>
 
+
+
+
+                    </small>
+                </h1>
+                <a href='<?php echo U("Access/node_add");?>' class="btn blue" style="margin-bottom: 20px;">创建新节点</a>
                 <div class="clearfix"></div>
                 <!-- table  -->
 
 
 
-                <div class="portlet-body">
-                    <!-- BEGIN FORM-->
-                    <form action="/index.php/Home/Access/user_add" id="form_sample_1" class="form-horizontal" method="post">
-                        <div class="form-body">
-                            <div class="alert alert-danger display-hide">
-                                <button class="close" data-close="alert"></button> You have some form errors. Please check below. </div>
-                            <div class="alert alert-success display-hide">
-                                <button class="close" data-close="alert"></button> Your form validation is successful! </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-3">用户名
-                                    <span class="required"> </span>
-                                </label>
-                                <div class="col-md-4">
-                                    <input type="text" name="name"  class="form-control" value="<?php echo ($user_info["name"]); ?>" /> </div>
+
+
+                        <div class="portlet-body">
+                            <div class="table-container" >
+
+                                <table width="100%" class="table  table-hover " id="sample_1">
+                                    <thead>
+                                    <tr role="row" class="heading">
+                                        <th> 序号&nbsp;# </th>
+                                        <th>模块</th>
+                                        <th>描述</th>
+
+                                        <th>操作</th>
+                                    </tr>
+
+
+
+                                    </thead>
+
+                                    <tbody>
+
+                                    <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr role="row" >
+                                            <td><?php echo ($vo["id"]); ?></td>
+                                            <td><b><?php echo ($vo["name"]); ?></b></td>
+                                            <td><?php echo ($vo["title"]); ?></td>
+
+                                            <td>
+
+                                                <a href="<?php echo U('Access/node_add',array('pid'=>$vo['id'],'level'=>$vo['level'] + 1));?>" class="btn btn-outline btn-circle btn-sm purple">
+                                                    <i class="fa fa-edit"></i> 添加
+                                                </a>
+
+                                                <a href="<?php echo U('Access/node_del',array('id'=>$vo['id']));?>" class="btn btn-outline btn-circle dark btn-sm black">
+                                                    <i class="fa fa-trash-o"></i> 删除 </a>
+
+
+                                            </td>
+
+                                        </tr>
+                                        <?php if(is_array($vo["child"])): $i = 0; $__LIST__ = $vo["child"];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$child): $mod = ($i % 2 );++$i;?><tr role="row" >
+                                                <td><?php echo ($child["id"]); ?></td>
+                                                <td><span style="margin-left: 50px;"><?php echo ($child["name"]); ?></span></td>
+                                                <td><?php echo ($child["title"]); ?></td>
+
+                                                <td>
+
+                                                    <a href="<?php echo U('Access/node_add',array('pid'=>$child['id'],'level'=>$child['level'] + 1));?>" class="btn btn-outline btn-circle btn-sm purple" >
+                                                        <i class="fa fa-edit"></i> 添加
+                                                    </a>
+
+                                                    <a href="<?php echo U('Access/node_del',array('id'=>$child['id']));?>" class="btn btn-outline btn-circle dark btn-sm black">
+                                                        <i class="fa fa-trash-o"></i> 删除 </a>
+
+
+                                                </td>
+
+                                            </tr>
+                                            <?php if(is_array($child["child"])): $i = 0; $__LIST__ = $child["child"];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$c): $mod = ($i % 2 );++$i;?><tr role="row" >
+                                                    <td><?php echo ($c["id"]); ?></td>
+                                                    <td><span style="margin-left: 100px;"><?php echo ($c["name"]); ?></span></td>
+                                                    <td><?php echo ($c["title"]); ?></td>
+
+                                                    <td>
+
+                                                        <a href="<?php echo U('Access/node_add',array('pid'=>$c['id'],'level'=>$c['level'] + 1));?>" class="btn btn-outline btn-circle btn-sm purple" >
+                                                            <i class="fa fa-edit"></i> 添加
+                                                        </a>
+
+                                                        <a href="<?php echo U('Access/node_del',array('id'=>$c['id']));?>" class="btn btn-outline btn-circle dark btn-sm black">
+                                                            <i class="fa fa-trash-o"></i> 删除 </a>
+
+
+                                                    </td>
+
+                                                </tr>
+                                                <?php if(is_array($c["child"])): $i = 0; $__LIST__ = $c["child"];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$cc): $mod = ($i % 2 );++$i;?><tr role="row" >
+                                                        <td><?php echo ($cc["id"]); ?></td>
+                                                        <td><span style="margin-left: 150px;"><?php echo ($cc["name"]); ?></span></td>
+                                                        <td><?php echo ($cc["title"]); ?></td>
+
+                                                        <td>
+
+                                                            <a href="<?php echo U('Access/node_add',array('pid'=>$cc['id'],'level'=>$cc['level'] + 1));?>" class="btn btn-outline btn-circle btn-sm purple" >
+                                                                <i class="fa fa-edit"></i> 添加
+                                                            </a>
+
+                                                            <a href="<?php echo U('Access/node_del',array('id'=>$cc['id']));?>" class="btn btn-outline btn-circle dark btn-sm black">
+                                                                <i class="fa fa-trash-o"></i> 删除 </a>
+
+
+                                                        </td>
+
+                                                    </tr><?php endforeach; endif; else: echo "" ;endif; endforeach; endif; else: echo "" ;endif; endforeach; endif; else: echo "" ;endif; endforeach; endif; else: echo "" ;endif; ?>
+
+                                    </tbody>
+                                </table>
+
                             </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-3">密码
-                                    <span class="required">  </span>
-                                </label>
-                                <div class="col-md-4">
-                                    <input name="password" type="text" class="form-control" /> </div>
-                            </div>
-
-
-
-                            <div class="form-group">
-                                <label class="control-label col-md-3">角色
-                                    <span class="required">  </span>
-                                </label>
-                                <div class="col-md-4">
-                                    <select class="form-control" name="role_id">
-                                        <option value="">请选择</option>
-                                        <?php if(is_array($role_list)): $i = 0; $__LIST__ = $role_list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vo["id"]); ?>"  ><?php echo ($vo["name"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
-
-                                    </select>
-                                </div>
-                            </div>
-
-
                         </div>
-                        <div class="form-actions">
-                            <div class="row">
-                                <div class="col-md-offset-3 col-md-9">
-                                    <button type="submit" class="btn green">Submit</button>
-                                    <button type="button" class="btn grey-salsa btn-outline">Cancel</button>
-
-                                    <input type="hidden" name="act" value="add">
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                    <!-- END FORM-->
-                </div>
-
-
 
 
 
@@ -557,6 +606,82 @@
 <script src="/Public/assets/layouts/global/scripts/quick-sidebar.min.js" type="text/javascript"></script>
 <script src="/Public/assets/layouts/global/scripts/quick-nav.min.js" type="text/javascript"></script>
 <!-- END THEME LAYOUT SCRIPTS -->
+
+<script language="javascript">
+
+
+
+
+
+    jQuery(document).ready(function()
+    {
+
+        var table = $('#sample_1');
+        table.dataTable({
+
+            // Internationalisation. For more info refer to http://datatables.net/manual/i18n
+            "language": {
+                "aria": {
+                    "sortAscending": ": activate to sort column ascending",
+                    "sortDescending": ": activate to sort column descending"
+                },
+                "emptyTable": "No data available in table",
+                "info": "Showing _START_ to _END_ of _TOTAL_ records",
+                "infoEmpty": "No records found",
+                "infoFiltered": "(filtered1 from _MAX_ total records)",
+                "lengthMenu": "Show _MENU_",
+                "search": "Search:",
+                "zeroRecords": "No matching records found",
+                "paginate": {
+                    "previous":"Prev",
+                    "next": "Next",
+                    "last": "Last",
+                    "first": "First"
+                }
+            },
+
+            // Or you can use remote translation file
+            //"language": {
+            //   url: '//cdn.datatables.net/plug-ins/3cfcc339e89/i18n/Portuguese.json'
+            //},
+
+            // Uncomment below line("dom" parameter) to fix the dropdown overflow issue in the datatable cells. The default datatable layout
+            // setup uses scrollable div(table-scrollable) with overflow:auto to enable vertical scroll(see: assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.js).
+            // So when dropdowns used the scrollable div should be removed.
+            //"dom": "<'row'<'col-md-6 col-sm-12'l><'col-md-6 col-sm-12'f>r>t<'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>",
+
+            "bStateSave": false, // save datatable state(pagination, sort, etc) in cookie.
+            "autoWidth": true,
+            "orderCellsTop": true,
+            //"scrollX": true,
+            //"serverSide": true,
+            //"filterApplyAction": "filter-submit",
+            //"filterCancelAction": "filter-cancel",
+
+
+            "lengthMenu": [
+                [20, 50, 100, -1],
+                [20, 50, 100, "All"] // change per page values here
+            ],
+            // set the initial value
+            "pageLength": 20,
+            "pagingType": "bootstrap_full_number",
+
+
+            "columnDefs":[{
+                "orderable":false,//禁用排序
+                "targets":[0,1,2,3]//指定的列
+            }],
+            "order": [
+                //[1, "asc"]
+            ] // set first column as a default sort by asc
+        });
+        //end
+
+
+    });
+
+</script>
 
 </body>
 </html>

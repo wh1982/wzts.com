@@ -129,11 +129,149 @@ class AccessController extends BaseController
     }
     public function user_del()
     {
+        $user_id=I('get.user_id');
+        $user=M('rbac_user');
+        $role_user = M('rbac_role_user');
+        $db=M();
+        $db->startTrans();
 
+        $res=$user->where(array("id"=>$user_id))->delete();
+        $res2=$role_user->where(array("user_id"=>$user_id))->delete();
+        if($res&&$res2)
+        {
+            $db->commit();
+            $this->success("删除成功",U("Access/index"));
+        }
+        else
+        {
+            $db->rollback();
+            $this->error("删除失败",U("Access/index"));
+        }
+        //dump($user_id);
+
+    }
+    public function role()
+    {
+        $this->assign('left_f0',"open");
+        $this->assign('left_arrow0',"open");
+        $this->assign('left_c0',"block");
+        $this->assign('left_c0_l2',"open");
+        $role=M('rbac_role');
+        $list=$role->order('id asc')->select();
+        $this->assign('list',$list);
+        $this->display();
+    }
+    public function role_edit()
+    {
+
+    }
+    public function role_del()
+    {
+        $id=I("get.id");
+        $role=M('rbac_role');
+        $role_user=M('rbac_role_user');
+        $db=M();
+        $db->startTrans();
+        $res1=$role->where(array("id"=>$id))->delete();
+        $res2=$role_user->where(array("role_id"=>$id))->delete();
+        if($res1&&$res2)
+        {
+            $db->commit();
+            $this->success("删除成功",U("Access/role"));
+        }
+        else
+        {
+            $db->rollback();
+            $this->error("删除失败",U("Access/role"));
+        }
+
+
+    }
+    public function role_add()
+    {
+        $this->assign('left_f0',"open");
+        $this->assign('left_arrow0',"open");
+        $this->assign('left_c0',"block");
+        $this->assign('left_c0_l2',"open");
+        if(I("post.act")=='add')
+        {
+            $role=M('rbac_role');
+            $role->create();
+            $res=$role->add();
+            if($res)
+            {
+                $this->success("创建成功",U("Access/role"));
+
+            }
+            else
+            {
+                $this->error("创建失败",U("Access/role"));
+            }
+            exit;
+
+        }
+        $this->display();
     }
     public function node()
     {
+        $this->assign('left_f0',"open");
+        $this->assign('left_arrow0',"open");
+        $this->assign('left_c0',"block");
+        $this->assign('left_c0_l3',"open");
+        $data = M('rbac_node')->select();
+        $list = category($data);
+        //dump($list);
+        $this->assign('list',$list);
+        $this->display();
 
+    }
+    public function node_add()
+    {
+        if(I("post.act")=='add')
+        {
+
+            $data = array(
+                'name'  => I('post.name',''),
+                'title' => I('post.title',''),
+                'level' => I('post.level',''),
+                'pid'   => I('post.pid','')
+
+            );
+            $status = M('rbac_node')->add($data);
+            //dump(M('node')->getlastsql());
+            if($status)
+            {
+                $this->success('添加成功',U('Access/node'));
+            }
+            else
+            {
+                $this->error('添加失败');
+            }
+            exit;
+        }
+        $pid = I('get.pid','0');
+        $level = I('get.level','1');
+        switch ($level) {
+            case '1':
+                $view = '模块';
+                break;
+            case '2':
+                $view = '控制器';
+                break;
+            case '3':
+                $view = '方法';
+                break;
+            case '4':
+                $view = '操作';
+                break;
+            default:
+                $view = '模块';
+                break;
+        }
+        $this->assign('view',$view);
+        $this->assign('pid',$pid);
+        $this->assign('level',$level);
+        $this->display();
     }
 //all end	
 }

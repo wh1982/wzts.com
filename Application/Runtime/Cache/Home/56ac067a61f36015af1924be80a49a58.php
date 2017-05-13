@@ -171,7 +171,7 @@
                                         </a>
                                     </li>
                                     <li class="nav-item  <?php echo ($left_c0_l3); ?>">
-                                        <a href='#' class="nav-link ">
+                                        <a href='<?php echo U("Access/node");?>' class="nav-link ">
                                             <span class="title">节点列表</span>
                                         </a>
                                     </li>
@@ -417,7 +417,7 @@
                             <i class="fa fa-circle"></i>
                         </li>
                         <li>
-                            <a href="###">创建用户</a>
+                            <a href="###">创建节点</a>
 
                         </li>
 
@@ -426,7 +426,7 @@
                 </div>
 
 
-                <h1 class="page-title" >创建用户
+                <h1 class="page-title" >创建节点
                     <small></small>
                 </h1>
 
@@ -437,41 +437,30 @@
 
                 <div class="portlet-body">
                     <!-- BEGIN FORM-->
-                    <form action="/index.php/Home/Access/user_add" id="form_sample_1" class="form-horizontal" method="post">
+                    <form action="/index.php/Home/Access/node_add" id="form_sample_1" class="form-horizontal" method="post">
                         <div class="form-body">
                             <div class="alert alert-danger display-hide">
                                 <button class="close" data-close="alert"></button> You have some form errors. Please check below. </div>
                             <div class="alert alert-success display-hide">
                                 <button class="close" data-close="alert"></button> Your form validation is successful! </div>
                             <div class="form-group">
-                                <label class="control-label col-md-3">用户名
+                                <label class="control-label col-md-3"><?php echo ($view); ?>
                                     <span class="required"> </span>
                                 </label>
                                 <div class="col-md-4">
-                                    <input type="text" name="name"  class="form-control" value="<?php echo ($user_info["name"]); ?>" /> </div>
+                                    <input type="text" name="name"  class="form-control" value="" /> </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-3">密码
+                                <label class="control-label col-md-3">描述
                                     <span class="required">  </span>
                                 </label>
                                 <div class="col-md-4">
-                                    <input name="password" type="text" class="form-control" /> </div>
+                                    <input name="title" type="text" class="form-control" /> </div>
                             </div>
 
 
 
-                            <div class="form-group">
-                                <label class="control-label col-md-3">角色
-                                    <span class="required">  </span>
-                                </label>
-                                <div class="col-md-4">
-                                    <select class="form-control" name="role_id">
-                                        <option value="">请选择</option>
-                                        <?php if(is_array($role_list)): $i = 0; $__LIST__ = $role_list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vo["id"]); ?>"  ><?php echo ($vo["name"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
 
-                                    </select>
-                                </div>
-                            </div>
 
 
                         </div>
@@ -482,6 +471,8 @@
                                     <button type="button" class="btn grey-salsa btn-outline">Cancel</button>
 
                                     <input type="hidden" name="act" value="add">
+                                    <input type="hidden" name="level" value="<?php echo ($level); ?>">
+                                    <input type="hidden" name="pid" value="<?php echo ($pid); ?>">
                                 </div>
                             </div>
                         </div>

@@ -166,7 +166,7 @@
                                         </a>
                                     </li>
                                     <li class="nav-item  <?php echo ($left_c0_l2); ?>">
-                                        <a href='#' class="nav-link ">
+                                        <a href='<?php echo U("Access/role");?>' class="nav-link ">
                                             <span class="title">角色列表</span>
                                         </a>
                                     </li>
@@ -557,82 +557,6 @@
 <script src="/Public/assets/layouts/global/scripts/quick-sidebar.min.js" type="text/javascript"></script>
 <script src="/Public/assets/layouts/global/scripts/quick-nav.min.js" type="text/javascript"></script>
 <!-- END THEME LAYOUT SCRIPTS -->
-
-<script language="javascript">
-
-
-
-
-
-    jQuery(document).ready(function()
-    {
-
-        var table = $('#sample_1');
-        table.dataTable({
-
-            // Internationalisation. For more info refer to http://datatables.net/manual/i18n
-            "language": {
-                "aria": {
-                    "sortAscending": ": activate to sort column ascending",
-                    "sortDescending": ": activate to sort column descending"
-                },
-                "emptyTable": "No data available in table",
-                "info": "Showing _START_ to _END_ of _TOTAL_ records",
-                "infoEmpty": "No records found",
-                "infoFiltered": "(filtered1 from _MAX_ total records)",
-                "lengthMenu": "Show _MENU_",
-                "search": "Search:",
-                "zeroRecords": "No matching records found",
-                "paginate": {
-                    "previous":"Prev",
-                    "next": "Next",
-                    "last": "Last",
-                    "first": "First"
-                }
-            },
-
-            // Or you can use remote translation file
-            //"language": {
-            //   url: '//cdn.datatables.net/plug-ins/3cfcc339e89/i18n/Portuguese.json'
-            //},
-
-            // Uncomment below line("dom" parameter) to fix the dropdown overflow issue in the datatable cells. The default datatable layout
-            // setup uses scrollable div(table-scrollable) with overflow:auto to enable vertical scroll(see: assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.js).
-            // So when dropdowns used the scrollable div should be removed.
-            //"dom": "<'row'<'col-md-6 col-sm-12'l><'col-md-6 col-sm-12'f>r>t<'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>",
-
-            "bStateSave": false, // save datatable state(pagination, sort, etc) in cookie.
-            "autoWidth": true,
-            "orderCellsTop": true,
-            //"scrollX": true,
-            //"serverSide": true,
-            //"filterApplyAction": "filter-submit",
-            //"filterCancelAction": "filter-cancel",
-
-
-            "lengthMenu": [
-                [20, 50, 100, -1],
-                [20, 50, 100, "All"] // change per page values here
-            ],
-            // set the initial value
-            "pageLength": 20,
-            "pagingType": "bootstrap_full_number",
-
-
-            "columnDefs":[{
-                "orderable":false,//禁用排序
-                "targets":[0,4]//指定的列
-            }],
-            "order": [
-                //[1, "asc"]
-            ] // set first column as a default sort by asc
-        });
-        //end
-
-
-    });
-
-</script>
 
 </body>
 </html>
