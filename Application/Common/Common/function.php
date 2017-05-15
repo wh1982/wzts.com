@@ -26,7 +26,20 @@ function category($data,$pid='0')
     }
     return $arr;
 }
+function category2($data,$pid='0')
+{
+    $arr = array();
+    foreach($data as $v)
+    {
+        if($v['pid'] == $pid)
+        {
+            $v['children'] = category2($data,$v['id']);
+            $arr[] = $v;
+        }
 
+    }
+    return $arr;
+}
 /**
  * 无限极分类
  * @param  [type]  $cate  [description]

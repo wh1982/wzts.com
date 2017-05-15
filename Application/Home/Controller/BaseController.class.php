@@ -12,6 +12,7 @@ class BaseController extends Controller
             $this->error('请重新登录', U('Home/Login/index'));
         }
         $access = \Org\Util\Rbac::AccessDecision();
+        //dump($access);
         if(!$access)
         {
             $this->error('你没有权限');
@@ -21,6 +22,6 @@ class BaseController extends Controller
         $home=U("Jixiao/index");
         $this->assign('home',$home);
     }
-//end	
+//end
 }
 ?>

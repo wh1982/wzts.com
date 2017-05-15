@@ -171,7 +171,7 @@
                                         </a>
                                     </li>
                                     <li class="nav-item  <?php echo ($left_c0_l3); ?>">
-                                        <a href='#' class="nav-link ">
+                                        <a href='<?php echo U("Access/node");?>' class="nav-link ">
                                             <span class="title">节点列表</span>
                                         </a>
                                     </li>

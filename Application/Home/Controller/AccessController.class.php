@@ -136,7 +136,13 @@ class AccessController extends BaseController
         $db->startTrans();
 
         $res=$user->where(array("id"=>$user_id))->delete();
-        $res2=$role_user->where(array("user_id"=>$user_id))->delete();
+        $res2=1;
+        $count=$role_user->where(array("user_id"=>$user_id))->count;
+        if($count>0)
+        {
+            $res2=$role_user->where(array("user_id"=>$user_id))->delete();
+        }
+
         if($res&&$res2)
         {
             $db->commit();
@@ -173,7 +179,13 @@ class AccessController extends BaseController
         $db=M();
         $db->startTrans();
         $res1=$role->where(array("id"=>$id))->delete();
-        $res2=$role_user->where(array("role_id"=>$id))->delete();
+        $res2=1;
+        $count=$role_user->where(array("role_id"=>$id))->count();
+        if($count>0)
+        {
+            $res2=$role_user->where(array("role_id"=>$id))->delete();
+        }
+
         if($res1&&$res2)
         {
             $db->commit();
@@ -227,6 +239,10 @@ class AccessController extends BaseController
     }
     public function node_add()
     {
+        $this->assign('left_f0',"open");
+        $this->assign('left_arrow0',"open");
+        $this->assign('left_c0',"block");
+        $this->assign('left_c0_l3',"open");
         if(I("post.act")=='add')
         {
 
@@ -272,6 +288,79 @@ class AccessController extends BaseController
         $this->assign('pid',$pid);
         $this->assign('level',$level);
         $this->display();
+    }
+    public function node_del()
+    {
+        $id = I('get.id');
+        $status = M('rbac_node')->where(array('id'=>$id))->delete();
+        //注意只删除了单个节点 ，下面有节点的话应该也要删除。需更新。
+        if($status)
+        {
+            $this->success('删除成功',U('Access/node'));
+        }
+        else
+        {
+            $this->error('删除失败');
+        }
+
+    }
+    public function access()
+    {
+        if(I("post.act")=='edit')
+        {
+
+
+            $node_id = I('post.');
+            $ids=$node_id["ids"];
+            $ids=explode(",",$ids);
+            //dump($ids);
+            //exit;
+            $role_id = $node_id['id'];
+            $status = M('rbac_access')->where(array('role_id'=>$role_id))->delete();
+            $data = array();
+
+            for ($i=0;$i<count($ids);$i++)
+            {
+                $data[] = array(
+                    'role_id' => $role_id,
+                    'node_id' => $ids[$i],
+                );
+            }
+            $status = M('rbac_access')->addAll($data);
+            if($status)
+            {
+                $this->success('配置成功',U('Access/role'));
+            }
+            else
+            {
+                $this->error('配置失败');
+            }
+            exit;
+        }
+
+        $this->assign('left_f0',"open");
+        $this->assign('left_arrow0',"open");
+        $this->assign('left_c0',"block");
+        $this->assign('left_c0_l2',"open");
+        $id = I('get.id');
+        //获取选中的ID
+        $ids  = M('rbac_access')->where(array('role_id'=>$id))->getField('node_id',true);
+        $ids=implode(",",$ids);
+        $this->assign('ids',$ids);
+        $this->assign('id',$id);
+        $this->display();
+
+    }
+    public function get_tree_menu()
+    {
+        $data = M('rbac_node')->select();
+        foreach($data as $key=>$val)
+        {
+            $data[$key]['text']=$data[$key]['title'];
+        }
+        $list = category2($data);
+        echo(json_encode($list));
+
     }
 //all end	
 }

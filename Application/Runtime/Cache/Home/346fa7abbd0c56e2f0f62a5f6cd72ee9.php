@@ -504,7 +504,7 @@
 
                                                     <td>
 
-                                                        <a href="<?php echo U('Access/node_add',array('pid'=>$c['id'],'level'=>$c['level'] + 1));?>" class="btn btn-outline btn-circle btn-sm purple" >
+                                                        <a href="<?php echo U('Access/node_add',array('pid'=>$c['id'],'level'=>$c['level']));?>" class="btn btn-outline btn-circle btn-sm purple" >
                                                             <i class="fa fa-edit"></i> 添加
                                                         </a>
 
@@ -522,9 +522,7 @@
 
                                                         <td>
 
-                                                            <a href="<?php echo U('Access/node_add',array('pid'=>$cc['id'],'level'=>$cc['level'] + 1));?>" class="btn btn-outline btn-circle btn-sm purple" >
-                                                                <i class="fa fa-edit"></i> 添加
-                                                            </a>
+
 
                                                             <a href="<?php echo U('Access/node_del',array('id'=>$cc['id']));?>" class="btn btn-outline btn-circle dark btn-sm black">
                                                                 <i class="fa fa-trash-o"></i> 删除 </a>
