@@ -4462,3 +4462,703 @@ INFO: [ app_end ] --START--
 INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001119s ]
 INFO: [ app_end ] --END-- [ RunTime:0.001206s ]
 
+[ 2017-05-15T12:38:36+08:00 ] 127.0.0.1 /index.php/Home/Access/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000056s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000650s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000695s ]
+SQL: SHOW COLUMNS FROM `lb_rbac_user` [ RunTime:0.0111s ]
+SQL: SELECT a.*,b.role_id FROM `lb_rbac_user` as a left join lb_rbac_role_user as b on a.id = b.user_id   [ RunTime:0.0034s ]
+SQL: SHOW COLUMNS FROM `lb_rbac_role` [ RunTime:0.0117s ]
+SQL: SELECT `name` FROM `lb_rbac_role` WHERE `id` = null LIMIT 1   [ RunTime:0.0027s ]
+SQL: SELECT `name` FROM `lb_rbac_role` WHERE `id` = 6 LIMIT 1   [ RunTime:0.0003s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000135s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000190s ]
+NOTIC: [8] Undefined variable: left_c0_l2 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\7ba4de018aab537265b4bdc6694d0412.php 第 168 行.
+NOTIC: [8] Undefined variable: left_c0_l3 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\7ba4de018aab537265b4bdc6694d0412.php 第 173 行.
+NOTIC: [8] Undefined variable: left_f1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\7ba4de018aab537265b4bdc6694d0412.php 第 183 行.
+NOTIC: [8] Undefined variable: left_arrow1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\7ba4de018aab537265b4bdc6694d0412.php 第 187 行.
+NOTIC: [8] Undefined variable: left_c1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\7ba4de018aab537265b4bdc6694d0412.php 第 189 行.
+NOTIC: [8] Undefined variable: left_c1_l1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\7ba4de018aab537265b4bdc6694d0412.php 第 190 行.
+NOTIC: [8] Undefined variable: left_c1_l2 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\7ba4de018aab537265b4bdc6694d0412.php 第 196 行.
+NOTIC: [8] Undefined variable: left_c1_l3 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\7ba4de018aab537265b4bdc6694d0412.php 第 201 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.017054s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017104s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000497s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000535s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000796s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000853s ]
+
+[ 2017-05-15T12:38:39+08:00 ] 127.0.0.1 /index.php/Home/Access/role.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000054s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000450s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000497s ]
+SQL: SHOW COLUMNS FROM `lb_rbac_role` [ RunTime:0.0133s ]
+SQL: SELECT * FROM `lb_rbac_role` ORDER BY id asc  [ RunTime:0.0024s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000127s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000183s ]
+NOTIC: [8] Undefined variable: left_c0_l1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\0ca2344a1a006fcc8ff2808c4bed8b7f.php 第 162 行.
+NOTIC: [8] Undefined variable: left_c0_l3 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\0ca2344a1a006fcc8ff2808c4bed8b7f.php 第 173 行.
+NOTIC: [8] Undefined variable: left_f1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\0ca2344a1a006fcc8ff2808c4bed8b7f.php 第 183 行.
+NOTIC: [8] Undefined variable: left_arrow1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\0ca2344a1a006fcc8ff2808c4bed8b7f.php 第 187 行.
+NOTIC: [8] Undefined variable: left_c1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\0ca2344a1a006fcc8ff2808c4bed8b7f.php 第 189 行.
+NOTIC: [8] Undefined variable: left_c1_l1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\0ca2344a1a006fcc8ff2808c4bed8b7f.php 第 190 行.
+NOTIC: [8] Undefined variable: left_c1_l2 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\0ca2344a1a006fcc8ff2808c4bed8b7f.php 第 196 行.
+NOTIC: [8] Undefined variable: left_c1_l3 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\0ca2344a1a006fcc8ff2808c4bed8b7f.php 第 201 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.016983s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017026s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000325s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000365s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000567s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000613s ]
+
+[ 2017-05-15T12:38:41+08:00 ] 127.0.0.1 /index.php/Home/Access/access/id/6.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000053s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000521s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000569s ]
+SQL: SHOW COLUMNS FROM `lb_rbac_access` [ RunTime:0.0113s ]
+SQL: SELECT `node_id` FROM `lb_rbac_access` WHERE `role_id` = 6  [ RunTime:0.0024s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000134s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000198s ]
+NOTIC: [8] Undefined variable: left_c0_l1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\db22d312db5fc37543ad885ec9b0e21c.php 第 163 行.
+NOTIC: [8] Undefined variable: left_c0_l3 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\db22d312db5fc37543ad885ec9b0e21c.php 第 174 行.
+NOTIC: [8] Undefined variable: left_f1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\db22d312db5fc37543ad885ec9b0e21c.php 第 184 行.
+NOTIC: [8] Undefined variable: left_arrow1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\db22d312db5fc37543ad885ec9b0e21c.php 第 188 行.
+NOTIC: [8] Undefined variable: left_c1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\db22d312db5fc37543ad885ec9b0e21c.php 第 190 行.
+NOTIC: [8] Undefined variable: left_c1_l1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\db22d312db5fc37543ad885ec9b0e21c.php 第 191 行.
+NOTIC: [8] Undefined variable: left_c1_l2 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\db22d312db5fc37543ad885ec9b0e21c.php 第 197 行.
+NOTIC: [8] Undefined variable: left_c1_l3 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\db22d312db5fc37543ad885ec9b0e21c.php 第 202 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014115s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014174s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000333s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000372s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000526s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000571s ]
+
+[ 2017-05-15T12:38:43+08:00 ] 127.0.0.1 /index.php/Home/Access/get_tree_menu.html?_=1494823122055
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000055s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000441s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000485s ]
+SQL: SHOW COLUMNS FROM `lb_rbac_node` [ RunTime:0.0109s ]
+SQL: SELECT * FROM `lb_rbac_node`  [ RunTime:0.0026s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000543s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000587s ]
+
+[ 2017-05-15T12:52:42+08:00 ] 127.0.0.1 /index.php/Home/Access/access/id/6.html?
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000057s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001746s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001801s ]
+SQL: SHOW COLUMNS FROM `lb_rbac_access` [ RunTime:0.0155s ]
+SQL: SELECT `node_id` FROM `lb_rbac_access` WHERE `role_id` = 6  [ RunTime:0.0038s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000150s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000219s ]
+NOTIC: [8] Undefined variable: left_c0_l1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\db22d312db5fc37543ad885ec9b0e21c.php 第 163 行.
+NOTIC: [8] Undefined variable: left_c0_l3 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\db22d312db5fc37543ad885ec9b0e21c.php 第 174 行.
+NOTIC: [8] Undefined variable: left_f1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\db22d312db5fc37543ad885ec9b0e21c.php 第 184 行.
+NOTIC: [8] Undefined variable: left_arrow1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\db22d312db5fc37543ad885ec9b0e21c.php 第 188 行.
+NOTIC: [8] Undefined variable: left_c1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\db22d312db5fc37543ad885ec9b0e21c.php 第 190 行.
+NOTIC: [8] Undefined variable: left_c1_l1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\db22d312db5fc37543ad885ec9b0e21c.php 第 191 行.
+NOTIC: [8] Undefined variable: left_c1_l2 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\db22d312db5fc37543ad885ec9b0e21c.php 第 197 行.
+NOTIC: [8] Undefined variable: left_c1_l3 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\db22d312db5fc37543ad885ec9b0e21c.php 第 202 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.018964s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.019026s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000646s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000699s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000925s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000989s ]
+
+[ 2017-05-15T12:52:43+08:00 ] 127.0.0.1 /index.php/Home/Access/get_tree_menu.html?_=1494823962349
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000061s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000492s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000539s ]
+SQL: SHOW COLUMNS FROM `lb_rbac_node` [ RunTime:0.0204s ]
+SQL: SELECT * FROM `lb_rbac_node`  [ RunTime:0.0059s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001110s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001199s ]
+
+[ 2017-05-15T12:52:43+08:00 ] 127.0.0.1 /index.php/Home/Login/signout.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000056s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000522s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000575s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000520s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000572s ]
+
+[ 2017-05-15T12:52:43+08:00 ] 127.0.0.1 /index.php/Home/Login/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000058s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000482s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000532s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000057s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000109s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006994s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007046s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000309s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000350s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000489s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000555s ]
+
+[ 2017-05-15T12:52:44+08:00 ] 127.0.0.1 /index.php/Home/Login/captcha.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000056s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000447s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000493s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000483s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000536s ]
+
+[ 2017-05-15T12:52:48+08:00 ] 127.0.0.1 /index.php/Home/Login/captcha.html?id=0.2617119631500874
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000056s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000473s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000517s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000597s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000649s ]
+
+[ 2017-05-15T12:52:49+08:00 ] 127.0.0.1 /index.php/Home/Login/captcha.html?id=0.09056259921967458
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000069s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000626s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000700s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000665s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000730s ]
+
+[ 2017-05-15T12:52:54+08:00 ] 127.0.0.1 /index.php/Home/Login/signin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000068s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000569s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000628s ]
+SQL: SHOW COLUMNS FROM `lb_rbac_user` [ RunTime:0.0099s ]
+SQL: SELECT * FROM `lb_rbac_user` WHERE `name` = 'admin' LIMIT 1   [ RunTime:0.0025s ]
+
+[ 2017-05-15T12:52:55+08:00 ] 127.0.0.1 /index.php/Home/Jixiao/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000055s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000459s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000506s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000127s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000190s ]
+NOTIC: [8] Undefined variable: left_f0 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\56a70f8565772373f1b2758557f93138.php 第 155 行.
+NOTIC: [8] Undefined variable: left_arrow0 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\56a70f8565772373f1b2758557f93138.php 第 159 行.
+NOTIC: [8] Undefined variable: left_c0 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\56a70f8565772373f1b2758557f93138.php 第 161 行.
+NOTIC: [8] Undefined variable: left_c0_l1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\56a70f8565772373f1b2758557f93138.php 第 162 行.
+NOTIC: [8] Undefined variable: left_c0_l2 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\56a70f8565772373f1b2758557f93138.php 第 168 行.
+NOTIC: [8] Undefined variable: left_c0_l3 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\56a70f8565772373f1b2758557f93138.php 第 173 行.
+NOTIC: [8] Undefined variable: left_c1_l2 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\56a70f8565772373f1b2758557f93138.php 第 196 行.
+NOTIC: [8] Undefined variable: left_c1_l3 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\56a70f8565772373f1b2758557f93138.php 第 201 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015075s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015126s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000282s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000320s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000484s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000529s ]
+
+[ 2017-05-15T12:52:57+08:00 ] 127.0.0.1 /index.php/Home/Jixiao/ajax_jx_get_chanpinbu.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000055s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000466s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000511s ]
+SQL: SHOW COLUMNS FROM `lb_view_orders` [ RunTime:0.0268s ]
+SQL: SHOW COLUMNS FROM `lb_warehouse` [ RunTime:0.0177s ]
+SQL: SHOW COLUMNS FROM `sp_users` [ RunTime:0.0645s ]
+SQL: SHOW COLUMNS FROM `lbpa_sku` [ RunTime:0.0635s ]
+SQL: SELECT * FROM `lb_view_orders` WHERE (  1=1 and (TO_DAYS( created_time ) - TO_DAYS( jiandang_time ) <=90 ) 
+	   and oid_status='TRADE_FINISHED' and  (created_time >='2017-05-15 00:00:00' and created_time <='2017-05-16 00:00:00') ) ORDER BY created_time asc  [ RunTime:0.0431s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000644s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000700s ]
+
+[ 2017-05-15T12:53:09+08:00 ] 127.0.0.1 /index.php/Home/Jixiao/ajax_jx_get_chanpinbu.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000048s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000558s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000600s ]
+SQL: SHOW COLUMNS FROM `lb_view_orders` [ RunTime:0.0198s ]
+SQL: SHOW COLUMNS FROM `lb_warehouse` [ RunTime:0.0215s ]
+SQL: SHOW COLUMNS FROM `sp_users` [ RunTime:0.0628s ]
+SQL: SHOW COLUMNS FROM `lbpa_sku` [ RunTime:0.0617s ]
+SQL: SELECT * FROM `lb_view_orders` WHERE (  1=1 and (TO_DAYS( created_time ) - TO_DAYS( jiandang_time ) <=90 ) 
+	   and oid_status='TRADE_FINISHED' and  (created_time >='2017-03-01 00:00:00' and created_time <='2017-05-02 00:00:00') ) ORDER BY created_time asc  [ RunTime:0.5277s ]
+SQL: SELECT `user_login` FROM `sp_users` WHERE ( id=26 ) LIMIT 1   [ RunTime:0.0595s ]
+SQL: SELECT `user_login` FROM `sp_users` WHERE ( id=26 ) LIMIT 1   [ RunTime:0.0592s ]
+SQL: SELECT `user_login` FROM `sp_users` WHERE ( id=26 ) LIMIT 1   [ RunTime:0.0614s ]
+SQL: SELECT `user_login` FROM `sp_users` WHERE ( id=26 ) LIMIT 1   [ RunTime:0.0596s ]
+SQL: SELECT `user_login` FROM `sp_users` WHERE ( id=26 ) LIMIT 1   [ RunTime:0.0639s ]
+SQL: SELECT `user_login` FROM `sp_users` WHERE ( id=4 ) LIMIT 1   [ RunTime:0.0597s ]
+SQL: SELECT `user_login` FROM `sp_users` WHERE ( id=26 ) LIMIT 1   [ RunTime:0.0599s ]
+SQL: SELECT `user_login` FROM `sp_users` WHERE ( id=26 ) LIMIT 1   [ RunTime:0.0602s ]
+SQL: SELECT `user_login` FROM `sp_users` WHERE ( id=4 ) LIMIT 1   [ RunTime:0.0639s ]
+SQL: SELECT `user_login` FROM `sp_users` WHERE ( id=26 ) LIMIT 1   [ RunTime:0.0594s ]
+SQL: SELECT `user_login` FROM `sp_users` WHERE ( id=4 ) LIMIT 1   [ RunTime:0.0596s ]
+SQL: SELECT `user_login` FROM `sp_users` WHERE ( id=36 ) LIMIT 1   [ RunTime:0.0595s ]
+SQL: SELECT `user_login` FROM `sp_users` WHERE ( id=4 ) LIMIT 1   [ RunTime:0.0593s ]
+SQL: SELECT `user_login` FROM `sp_users` WHERE ( id=26 ) LIMIT 1   [ RunTime:0.0598s ]
+SQL: SELECT `user_login` FROM `sp_users` WHERE ( id=26 ) LIMIT 1   [ RunTime:0.0591s ]
+SQL: SELECT `user_login` FROM `sp_users` WHERE ( id=26 ) LIMIT 1   [ RunTime:0.0594s ]
+SQL: SELECT `user_login` FROM `sp_users` WHERE ( id=26 ) LIMIT 1   [ RunTime:0.0609s ]
+SQL: SELECT `user_login` FROM `sp_users` WHERE ( id=26 ) LIMIT 1   [ RunTime:0.0597s ]
+SQL: SELECT `user_login` FROM `sp_users` WHERE ( id=26 ) LIMIT 1   [ RunTime:0.0609s ]
+SQL: SELECT `user_login` FROM `sp_users` WHERE ( id=26 ) LIMIT 1   [ RunTime:0.0607s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000654s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000729s ]
+
+[ 2017-05-15T12:53:13+08:00 ] 127.0.0.1 /index.php/Home/Access/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000060s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000603s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000660s ]
+SQL: SHOW COLUMNS FROM `lb_rbac_user` [ RunTime:0.0209s ]
+SQL: SELECT a.*,b.role_id FROM `lb_rbac_user` as a left join lb_rbac_role_user as b on a.id = b.user_id   [ RunTime:0.0072s ]
+SQL: SHOW COLUMNS FROM `lb_rbac_role` [ RunTime:0.0123s ]
+SQL: SELECT `name` FROM `lb_rbac_role` WHERE `id` = null LIMIT 1   [ RunTime:0.0032s ]
+SQL: SELECT `name` FROM `lb_rbac_role` WHERE `id` = 6 LIMIT 1   [ RunTime:0.0007s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000122s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000167s ]
+NOTIC: [8] Undefined variable: left_c0_l2 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\7ba4de018aab537265b4bdc6694d0412.php 第 168 行.
+NOTIC: [8] Undefined variable: left_c0_l3 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\7ba4de018aab537265b4bdc6694d0412.php 第 173 行.
+NOTIC: [8] Undefined variable: left_f1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\7ba4de018aab537265b4bdc6694d0412.php 第 183 行.
+NOTIC: [8] Undefined variable: left_arrow1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\7ba4de018aab537265b4bdc6694d0412.php 第 187 行.
+NOTIC: [8] Undefined variable: left_c1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\7ba4de018aab537265b4bdc6694d0412.php 第 189 行.
+NOTIC: [8] Undefined variable: left_c1_l1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\7ba4de018aab537265b4bdc6694d0412.php 第 190 行.
+NOTIC: [8] Undefined variable: left_c1_l2 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\7ba4de018aab537265b4bdc6694d0412.php 第 196 行.
+NOTIC: [8] Undefined variable: left_c1_l3 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\7ba4de018aab537265b4bdc6694d0412.php 第 201 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015849s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015897s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000291s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000330s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000592s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000648s ]
+
+[ 2017-05-15T12:53:16+08:00 ] 127.0.0.1 /index.php/Home/Access/role.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000059s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000465s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000515s ]
+SQL: SHOW COLUMNS FROM `lb_rbac_role` [ RunTime:0.0251s ]
+SQL: SELECT * FROM `lb_rbac_role` ORDER BY id asc  [ RunTime:0.0029s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000132s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000183s ]
+NOTIC: [8] Undefined variable: left_c0_l1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\0ca2344a1a006fcc8ff2808c4bed8b7f.php 第 162 行.
+NOTIC: [8] Undefined variable: left_c0_l3 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\0ca2344a1a006fcc8ff2808c4bed8b7f.php 第 173 行.
+NOTIC: [8] Undefined variable: left_f1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\0ca2344a1a006fcc8ff2808c4bed8b7f.php 第 183 行.
+NOTIC: [8] Undefined variable: left_arrow1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\0ca2344a1a006fcc8ff2808c4bed8b7f.php 第 187 行.
+NOTIC: [8] Undefined variable: left_c1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\0ca2344a1a006fcc8ff2808c4bed8b7f.php 第 189 行.
+NOTIC: [8] Undefined variable: left_c1_l1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\0ca2344a1a006fcc8ff2808c4bed8b7f.php 第 190 行.
+NOTIC: [8] Undefined variable: left_c1_l2 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\0ca2344a1a006fcc8ff2808c4bed8b7f.php 第 196 行.
+NOTIC: [8] Undefined variable: left_c1_l3 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\0ca2344a1a006fcc8ff2808c4bed8b7f.php 第 201 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.016282s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016333s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000360s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000407s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000546s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000595s ]
+
+[ 2017-05-15T12:53:18+08:00 ] 127.0.0.1 /index.php/Home/Access/access/id/6.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000051s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000440s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000483s ]
+SQL: SHOW COLUMNS FROM `lb_rbac_access` [ RunTime:0.0341s ]
+SQL: SELECT `node_id` FROM `lb_rbac_access` WHERE `role_id` = 6  [ RunTime:0.0135s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000226s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000319s ]
+NOTIC: [8] Undefined variable: left_c0_l1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\db22d312db5fc37543ad885ec9b0e21c.php 第 163 行.
+NOTIC: [8] Undefined variable: left_c0_l3 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\db22d312db5fc37543ad885ec9b0e21c.php 第 174 行.
+NOTIC: [8] Undefined variable: left_f1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\db22d312db5fc37543ad885ec9b0e21c.php 第 184 行.
+NOTIC: [8] Undefined variable: left_arrow1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\db22d312db5fc37543ad885ec9b0e21c.php 第 188 行.
+NOTIC: [8] Undefined variable: left_c1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\db22d312db5fc37543ad885ec9b0e21c.php 第 190 行.
+NOTIC: [8] Undefined variable: left_c1_l1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\db22d312db5fc37543ad885ec9b0e21c.php 第 191 行.
+NOTIC: [8] Undefined variable: left_c1_l2 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\db22d312db5fc37543ad885ec9b0e21c.php 第 197 行.
+NOTIC: [8] Undefined variable: left_c1_l3 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\db22d312db5fc37543ad885ec9b0e21c.php 第 202 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.032132s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.032247s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000527s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000601s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000977s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001069s ]
+
+[ 2017-05-15T12:53:19+08:00 ] 127.0.0.1 /index.php/Home/Access/get_tree_menu.html?_=1494823998655
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000057s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000562s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000616s ]
+SQL: SHOW COLUMNS FROM `lb_rbac_node` [ RunTime:0.0097s ]
+SQL: SELECT * FROM `lb_rbac_node`  [ RunTime:0.0035s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000559s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000605s ]
+
+[ 2017-05-15T12:53:23+08:00 ] 127.0.0.1 /index.php/Home/Access/access/id/6.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000101s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000530s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000579s ]
+SQL: SHOW COLUMNS FROM `lb_rbac_access` [ RunTime:0.0180s ]
+SQL: DELETE FROM `lb_rbac_access` WHERE `role_id` = 6 [ RunTime:0.0145s ]
+SQL: INSERT INTO `lb_rbac_access` (`role_id`,`node_id`) VALUES ('6','29'),('6','30'),('6','31'),('6','28'),('6','20') [ RunTime:0.0033s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000036s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000087s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005848s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005921s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000265s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000306s ]
+
+[ 2017-05-15T12:53:25+08:00 ] 127.0.0.1 /index.php/Home/Access/role.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000058s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000487s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000536s ]
+SQL: SHOW COLUMNS FROM `lb_rbac_role` [ RunTime:0.0181s ]
+SQL: SELECT * FROM `lb_rbac_role` ORDER BY id asc  [ RunTime:0.0050s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000124s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000189s ]
+NOTIC: [8] Undefined variable: left_c0_l1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\0ca2344a1a006fcc8ff2808c4bed8b7f.php 第 162 行.
+NOTIC: [8] Undefined variable: left_c0_l3 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\0ca2344a1a006fcc8ff2808c4bed8b7f.php 第 173 行.
+NOTIC: [8] Undefined variable: left_f1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\0ca2344a1a006fcc8ff2808c4bed8b7f.php 第 183 行.
+NOTIC: [8] Undefined variable: left_arrow1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\0ca2344a1a006fcc8ff2808c4bed8b7f.php 第 187 行.
+NOTIC: [8] Undefined variable: left_c1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\0ca2344a1a006fcc8ff2808c4bed8b7f.php 第 189 行.
+NOTIC: [8] Undefined variable: left_c1_l1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\0ca2344a1a006fcc8ff2808c4bed8b7f.php 第 190 行.
+NOTIC: [8] Undefined variable: left_c1_l2 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\0ca2344a1a006fcc8ff2808c4bed8b7f.php 第 196 行.
+NOTIC: [8] Undefined variable: left_c1_l3 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\0ca2344a1a006fcc8ff2808c4bed8b7f.php 第 201 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.018314s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.018376s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000280s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000324s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000480s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000531s ]
+
+[ 2017-05-15T12:53:27+08:00 ] 127.0.0.1 /index.php/Home/Access/access/id/6.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000053s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000461s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000504s ]
+SQL: SHOW COLUMNS FROM `lb_rbac_access` [ RunTime:0.0107s ]
+SQL: SELECT `node_id` FROM `lb_rbac_access` WHERE `role_id` = 6  [ RunTime:0.0025s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000114s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000163s ]
+NOTIC: [8] Undefined variable: left_c0_l1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\db22d312db5fc37543ad885ec9b0e21c.php 第 163 行.
+NOTIC: [8] Undefined variable: left_c0_l3 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\db22d312db5fc37543ad885ec9b0e21c.php 第 174 行.
+NOTIC: [8] Undefined variable: left_f1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\db22d312db5fc37543ad885ec9b0e21c.php 第 184 行.
+NOTIC: [8] Undefined variable: left_arrow1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\db22d312db5fc37543ad885ec9b0e21c.php 第 188 行.
+NOTIC: [8] Undefined variable: left_c1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\db22d312db5fc37543ad885ec9b0e21c.php 第 190 行.
+NOTIC: [8] Undefined variable: left_c1_l1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\db22d312db5fc37543ad885ec9b0e21c.php 第 191 行.
+NOTIC: [8] Undefined variable: left_c1_l2 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\db22d312db5fc37543ad885ec9b0e21c.php 第 197 行.
+NOTIC: [8] Undefined variable: left_c1_l3 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\db22d312db5fc37543ad885ec9b0e21c.php 第 202 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013736s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013795s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000322s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000357s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000558s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000605s ]
+
+[ 2017-05-15T12:53:29+08:00 ] 127.0.0.1 /index.php/Home/Access/get_tree_menu.html?_=1494824007967
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000059s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000479s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000521s ]
+SQL: SHOW COLUMNS FROM `lb_rbac_node` [ RunTime:0.0213s ]
+SQL: SELECT * FROM `lb_rbac_node`  [ RunTime:0.0066s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000712s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000781s ]
+
+[ 2017-05-15T12:53:33+08:00 ] 127.0.0.1 /index.php/Home/Access/node.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000053s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000467s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000515s ]
+SQL: SHOW COLUMNS FROM `lb_rbac_node` [ RunTime:0.0273s ]
+SQL: SELECT * FROM `lb_rbac_node`  [ RunTime:0.0042s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000202s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000270s ]
+NOTIC: [8] Undefined variable: left_c0_l1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\346fa7abbd0c56e2f0f62a5f6cd72ee9.php 第 162 行.
+NOTIC: [8] Undefined variable: left_c0_l2 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\346fa7abbd0c56e2f0f62a5f6cd72ee9.php 第 168 行.
+NOTIC: [8] Undefined variable: left_f1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\346fa7abbd0c56e2f0f62a5f6cd72ee9.php 第 183 行.
+NOTIC: [8] Undefined variable: left_arrow1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\346fa7abbd0c56e2f0f62a5f6cd72ee9.php 第 187 行.
+NOTIC: [8] Undefined variable: left_c1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\346fa7abbd0c56e2f0f62a5f6cd72ee9.php 第 189 行.
+NOTIC: [8] Undefined variable: left_c1_l1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\346fa7abbd0c56e2f0f62a5f6cd72ee9.php 第 190 行.
+NOTIC: [8] Undefined variable: left_c1_l2 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\346fa7abbd0c56e2f0f62a5f6cd72ee9.php 第 196 行.
+NOTIC: [8] Undefined variable: left_c1_l3 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\346fa7abbd0c56e2f0f62a5f6cd72ee9.php 第 201 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.027842s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.027899s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000317s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000359s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000527s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000576s ]
+
+[ 2017-05-15T14:34:35+08:00 ] 127.0.0.1 /index.php/Home/Access/role.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000049s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000624s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000667s ]
+SQL: SHOW COLUMNS FROM `lb_rbac_role` [ RunTime:0.0054s ]
+SQL: SELECT * FROM `lb_rbac_role` ORDER BY id asc  [ RunTime:0.0009s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000115s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000162s ]
+NOTIC: [8] Undefined variable: left_c0_l1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\0ca2344a1a006fcc8ff2808c4bed8b7f.php 第 162 行.
+NOTIC: [8] Undefined variable: left_c0_l3 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\0ca2344a1a006fcc8ff2808c4bed8b7f.php 第 173 行.
+NOTIC: [8] Undefined variable: left_f1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\0ca2344a1a006fcc8ff2808c4bed8b7f.php 第 183 行.
+NOTIC: [8] Undefined variable: left_arrow1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\0ca2344a1a006fcc8ff2808c4bed8b7f.php 第 187 行.
+NOTIC: [8] Undefined variable: left_c1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\0ca2344a1a006fcc8ff2808c4bed8b7f.php 第 189 行.
+NOTIC: [8] Undefined variable: left_c1_l1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\0ca2344a1a006fcc8ff2808c4bed8b7f.php 第 190 行.
+NOTIC: [8] Undefined variable: left_c1_l2 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\0ca2344a1a006fcc8ff2808c4bed8b7f.php 第 196 行.
+NOTIC: [8] Undefined variable: left_c1_l3 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\0ca2344a1a006fcc8ff2808c4bed8b7f.php 第 201 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014870s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014925s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000493s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000531s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000719s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000763s ]
+
+[ 2017-05-15T14:34:38+08:00 ] 127.0.0.1 /index.php/Home/Access/access/id/6.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000057s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000484s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000532s ]
+SQL: SHOW COLUMNS FROM `lb_rbac_access` [ RunTime:0.0134s ]
+SQL: SELECT `node_id` FROM `lb_rbac_access` WHERE `role_id` = 6  [ RunTime:0.0025s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000297s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000418s ]
+NOTIC: [8] Undefined variable: left_c0_l1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\db22d312db5fc37543ad885ec9b0e21c.php 第 163 行.
+NOTIC: [8] Undefined variable: left_c0_l3 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\db22d312db5fc37543ad885ec9b0e21c.php 第 174 行.
+NOTIC: [8] Undefined variable: left_f1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\db22d312db5fc37543ad885ec9b0e21c.php 第 184 行.
+NOTIC: [8] Undefined variable: left_arrow1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\db22d312db5fc37543ad885ec9b0e21c.php 第 188 行.
+NOTIC: [8] Undefined variable: left_c1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\db22d312db5fc37543ad885ec9b0e21c.php 第 190 行.
+NOTIC: [8] Undefined variable: left_c1_l1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\db22d312db5fc37543ad885ec9b0e21c.php 第 191 行.
+NOTIC: [8] Undefined variable: left_c1_l2 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\db22d312db5fc37543ad885ec9b0e21c.php 第 197 行.
+NOTIC: [8] Undefined variable: left_c1_l3 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\db22d312db5fc37543ad885ec9b0e21c.php 第 202 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.031050s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.031128s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000352s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000396s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000557s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000609s ]
+
+[ 2017-05-15T14:34:39+08:00 ] 127.0.0.1 /index.php/Home/Access/get_tree_menu.html?_=1494830078516
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000059s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000502s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000547s ]
+SQL: SHOW COLUMNS FROM `lb_rbac_node` [ RunTime:0.0105s ]
+SQL: SELECT * FROM `lb_rbac_node`  [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001033s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001116s ]
+
+[ 2017-05-15T14:34:44+08:00 ] 127.0.0.1 /index.php/Home/Access/access/id/6.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000056s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000490s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000540s ]
+SQL: SHOW COLUMNS FROM `lb_rbac_access` [ RunTime:0.0121s ]
+SQL: DELETE FROM `lb_rbac_access` WHERE `role_id` = 6 [ RunTime:0.0107s ]
+SQL: INSERT INTO `lb_rbac_access` (`role_id`,`node_id`) VALUES ('6','30'),('6','31') [ RunTime:0.0032s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000068s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000173s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010257s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010362s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000628s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000711s ]
+
+[ 2017-05-15T14:34:46+08:00 ] 127.0.0.1 /index.php/Home/Access/role.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000081s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000691s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000761s ]
+SQL: SHOW COLUMNS FROM `lb_rbac_role` [ RunTime:0.0219s ]
+SQL: SELECT * FROM `lb_rbac_role` ORDER BY id asc  [ RunTime:0.0040s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000219s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000305s ]
+NOTIC: [8] Undefined variable: left_c0_l1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\0ca2344a1a006fcc8ff2808c4bed8b7f.php 第 162 行.
+NOTIC: [8] Undefined variable: left_c0_l3 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\0ca2344a1a006fcc8ff2808c4bed8b7f.php 第 173 行.
+NOTIC: [8] Undefined variable: left_f1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\0ca2344a1a006fcc8ff2808c4bed8b7f.php 第 183 行.
+NOTIC: [8] Undefined variable: left_arrow1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\0ca2344a1a006fcc8ff2808c4bed8b7f.php 第 187 行.
+NOTIC: [8] Undefined variable: left_c1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\0ca2344a1a006fcc8ff2808c4bed8b7f.php 第 189 行.
+NOTIC: [8] Undefined variable: left_c1_l1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\0ca2344a1a006fcc8ff2808c4bed8b7f.php 第 190 行.
+NOTIC: [8] Undefined variable: left_c1_l2 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\0ca2344a1a006fcc8ff2808c4bed8b7f.php 第 196 行.
+NOTIC: [8] Undefined variable: left_c1_l3 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\0ca2344a1a006fcc8ff2808c4bed8b7f.php 第 201 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.035020s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.035144s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000588s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000669s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000904s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000989s ]
+
+[ 2017-05-15T14:34:48+08:00 ] 127.0.0.1 /index.php/Home/Access/access/id/6.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000084s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000785s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000861s ]
+SQL: SHOW COLUMNS FROM `lb_rbac_access` [ RunTime:0.0085s ]
+SQL: SELECT `node_id` FROM `lb_rbac_access` WHERE `role_id` = 6  [ RunTime:0.0015s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000201s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000284s ]
+NOTIC: [8] Undefined variable: left_c0_l1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\db22d312db5fc37543ad885ec9b0e21c.php 第 163 行.
+NOTIC: [8] Undefined variable: left_c0_l3 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\db22d312db5fc37543ad885ec9b0e21c.php 第 174 行.
+NOTIC: [8] Undefined variable: left_f1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\db22d312db5fc37543ad885ec9b0e21c.php 第 184 行.
+NOTIC: [8] Undefined variable: left_arrow1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\db22d312db5fc37543ad885ec9b0e21c.php 第 188 行.
+NOTIC: [8] Undefined variable: left_c1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\db22d312db5fc37543ad885ec9b0e21c.php 第 190 行.
+NOTIC: [8] Undefined variable: left_c1_l1 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\db22d312db5fc37543ad885ec9b0e21c.php 第 191 行.
+NOTIC: [8] Undefined variable: left_c1_l2 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\db22d312db5fc37543ad885ec9b0e21c.php 第 197 行.
+NOTIC: [8] Undefined variable: left_c1_l3 C:\PHPnow\vhosts\wzts.com\Application\Runtime\Cache\Home\db22d312db5fc37543ad885ec9b0e21c.php 第 202 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.021582s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.021657s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000539s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000606s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000862s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000949s ]
+
+[ 2017-05-15T14:34:50+08:00 ] 127.0.0.1 /index.php/Home/Access/get_tree_menu.html?_=1494830089014
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000053s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000482s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000525s ]
+SQL: SHOW COLUMNS FROM `lb_rbac_node` [ RunTime:0.0153s ]
+SQL: SELECT * FROM `lb_rbac_node`  [ RunTime:0.0028s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001623s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001757s ]
+
