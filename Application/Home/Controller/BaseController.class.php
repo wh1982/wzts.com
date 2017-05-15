@@ -21,6 +21,7 @@ class BaseController extends Controller
         $this->assign('login_name',$login_name);
         $home=U("Jixiao/index");
         $this->assign('home',$home);
+
     }
 //end
 }

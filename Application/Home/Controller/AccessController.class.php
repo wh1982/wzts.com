@@ -306,6 +306,7 @@ class AccessController extends BaseController
     }
     public function access()
     {
+        header("Content-Type:text/html; charset=utf-8");
         if(I("post.act")=='edit')
         {
 
@@ -313,8 +314,20 @@ class AccessController extends BaseController
             $node_id = I('post.');
             $ids=$node_id["ids"];
             $ids=explode(",",$ids);
+
+            //dump($node_id);
+            //$x=serialize($node_id['qudao']);
+            //echo($x);
+            //dump(unserialize($x));
+            //exit;
             //dump($ids);
             //exit;
+            //更新rbac_user
+            $user=M('rbac_user');
+            $user->qudao=serialize($node_id['qudao']);
+            $user->dianpu=serialize($node_id['dianpu']);
+            $user->cangwei=serialize($node_id['cangwei']);
+            $user->where("id=".session('id'))->save();
             $role_id = $node_id['id'];
             $status = M('rbac_access')->where(array('role_id'=>$role_id))->delete();
             $data = array();
@@ -348,6 +361,72 @@ class AccessController extends BaseController
         $ids=implode(",",$ids);
         $this->assign('ids',$ids);
         $this->assign('id',$id);
+        //获取用户信息
+        $login_info=$this->get_login_info();
+        //dump($login_info);
+        //渠道
+        $qudao_list=C('QUDAO_LIST');
+        $qudao_list=explode(",",$qudao_list);
+        $user_qudao=unserialize($login_info['qudao']);
+        $arr=array();
+        for($i=0;$i<count($qudao_list);$i++)
+        {
+
+            if(in_array($qudao_list[$i],$user_qudao))
+            {
+                $arr[$i]['s']="selected";
+
+            }
+            else
+            {
+                $arr[$i]['s']="";
+            }
+            $arr[$i]['title']=$qudao_list[$i];
+        }
+        $qudao_list=$arr;
+        $this->assign('qudao_list',$qudao_list);
+        //店铺
+        $dianpu_list=C('DIANPU_LIST');
+        $dianpu_list=explode(",",$dianpu_list);
+        $user_dianpu=unserialize($login_info['dianpu']);
+        $arr=array();
+        for($i=0;$i<count($dianpu_list);$i++)
+        {
+
+            if(in_array($dianpu_list[$i],$user_dianpu))
+            {
+                $arr[$i]['s']="selected";
+
+            }
+            else
+            {
+                $arr[$i]['s']="";
+            }
+            $arr[$i]['title']=$dianpu_list[$i];
+        }
+        $dianpu_list=$arr;
+        $this->assign('dianpu_list',$dianpu_list);
+        //仓位
+        $warehouse=M('warehouse');
+        $warehouse_list=$warehouse->select();
+        $user_cangwei=unserialize($login_info['cangwei']);
+        foreach($warehouse_list as $key=>$val)
+        {
+            if(in_array($warehouse_list[$key]['id'],$user_cangwei))
+            {
+                $warehouse_list[$key]['s']="selected";
+
+            }
+            else
+            {
+                $warehouse_list[$key]['s']="";
+            }
+        }
+
+        $this->assign('warehouse_list',$warehouse_list);
+        //供应商
+        //品类
+
         $this->display();
 
     }
@@ -361,6 +440,15 @@ class AccessController extends BaseController
         $list = category2($data);
         echo(json_encode($list));
 
+    }
+    public function get_login_info()
+    {
+        //获取用户渠道 店铺 仓位 供应商 品类数据
+        $login_user_id=session('id');
+        $login_user=M('rbac_user');
+        $login_info=$login_user->where(array("id"=>$login_user_id))->find();
+        return $login_info;
+        //dump($login_info);
     }
 //all end	
 }

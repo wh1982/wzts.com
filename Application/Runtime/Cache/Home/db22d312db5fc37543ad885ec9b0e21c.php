@@ -444,7 +444,22 @@
                 <form action="" method="post" id="form1" name="form1">
 
                     <div id="configTree" ></div>
-
+                    <br>
+                    <div>
+                        渠道
+                        <select name="qudao[]" size="6" multiple="multiple">
+                            <?php if(is_array($qudao_list)): $i = 0; $__LIST__ = $qudao_list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vo["title"]); ?>" <?php echo ($vo["s"]); ?>><?php echo ($vo["title"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
+                        </select>
+                        店铺
+                        <select name="dianpu[]" size="6" multiple="multiple">
+                            <?php if(is_array($dianpu_list)): $i = 0; $__LIST__ = $dianpu_list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vo["title"]); ?>" <?php echo ($vo["s"]); ?>><?php echo ($vo["title"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
+                        </select>
+                        仓位
+                        <select name="cangwei[]" size="6" multiple="multiple">
+                            <?php if(is_array($warehouse_list)): $i = 0; $__LIST__ = $warehouse_list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vo["id"]); ?>" <?php echo ($vo["s"]); ?>><?php echo ($vo["name"]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
+                        </select>
+                    </div>
+                    <br>
                     <input type="button" name="Submit" value="提交" class="btn green" onclick="getMenuIds()"/>
                     <input type="hidden" name="id" value="<?php echo ($id); ?>">
                     <input type="hidden" name="ids" value="" id="ids">

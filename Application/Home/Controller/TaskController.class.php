@@ -180,7 +180,7 @@ class TaskController extends BaseController
             if($order_count==0)
             {
                 $orders->qudao="天猫";
-                $orders->dianpu="领般旗舰店";
+                $orders->dianpu="天猫领般旗舰店";
                 $orders->order_id=$list[$i]['tid'];
                 $orders->addtime=time();
                 $orders->created_time =$list[$i]['created'];
@@ -349,7 +349,7 @@ class TaskController extends BaseController
             if($order_count==0)
             {
                 $orders->qudao="京东";
-                $orders->dianpu="领般旗舰店";
+                $orders->dianpu="京东领般旗舰店";
                 $orders->order_id=$list[$i]['order_id'];
                 $orders->addtime=time();
                 $orders->created_time =$list[$i]['order_start_time'];

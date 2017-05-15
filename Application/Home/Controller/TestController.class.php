@@ -43,6 +43,13 @@ class TestController extends Controller
     $sku=D('sku');
 	$arraywhere=" 1=1 and oid_status='TRADE_FINISHED' and  (created_time >='".$search_stime."' and created_time <='".$search_etime."')";
    }
+   public  function test()
+   {
+      $txt=array("a","b","c");
+      dump($txt);
+      $x=  in_array("a1",$txt);
+      dump($x);
+   }
   
 //end	
 }

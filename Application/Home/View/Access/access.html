@@ -56,7 +56,28 @@
                 <form action="" method="post" id="form1" name="form1">
 
                     <div id="configTree" ></div>
-
+                    <br>
+                    <div>
+                        渠道
+                        <select name="qudao[]" size="6" multiple="multiple">
+                            <volist id="vo" name="qudao_list">
+                            <option value="{$vo.title}" {$vo.s}>{$vo.title}</option>
+                            </volist>
+                        </select>
+                        店铺
+                        <select name="dianpu[]" size="6" multiple="multiple">
+                            <volist id="vo" name="dianpu_list">
+                                <option value="{$vo.title}" {$vo.s}>{$vo.title}</option>
+                            </volist>
+                        </select>
+                        仓位
+                        <select name="cangwei[]" size="6" multiple="multiple">
+                            <volist id="vo" name="warehouse_list">
+                                <option value="{$vo.id}" {$vo.s}>{$vo.name}</option>
+                            </volist>
+                        </select>
+                    </div>
+                    <br>
                     <input type="button" name="Submit" value="提交" class="btn green" onclick="getMenuIds()"/>
                     <input type="hidden" name="id" value="{$id}">
                     <input type="hidden" name="ids" value="" id="ids">
