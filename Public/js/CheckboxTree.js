@@ -45,7 +45,8 @@ function showCheckboxTree(url,id,checkId){
         },
         "checkbox" : {
             "keep_selected_style" : false,
-            "real_checkboxes" : true
+
+
         },
         "plugins" : [
             "contextmenu", "dnd", "search",

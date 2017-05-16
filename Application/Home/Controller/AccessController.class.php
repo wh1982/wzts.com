@@ -176,17 +176,24 @@ class AccessController extends BaseController
         $id=I("get.id");
         $role=M('rbac_role');
         $role_user=M('rbac_role_user');
+        $range=M('rbac_range');
         $db=M();
         $db->startTrans();
         $res1=$role->where(array("id"=>$id))->delete();
         $res2=1;
+        $res3=1;
         $count=$role_user->where(array("role_id"=>$id))->count();
         if($count>0)
         {
             $res2=$role_user->where(array("role_id"=>$id))->delete();
         }
-
-        if($res1&&$res2)
+        //删除rbac_range表相关role_id信息
+        $count3=$range->where(array("role_id"=>$id))->count();
+        if($count3>0)
+        {
+            $res3=$range->where(array("role_id"=>$id))->delete();
+        }
+        if($res1&&$res2&&$res3)
         {
             $db->commit();
             $this->success("删除成功",U("Access/role"));
@@ -314,6 +321,7 @@ class AccessController extends BaseController
             $node_id = I('post.');
             $ids=$node_id["ids"];
             $ids=explode(",",$ids);
+            $role_id = $node_id['id'];
 
             //dump($node_id);
             //$x=serialize($node_id['qudao']);
@@ -322,16 +330,17 @@ class AccessController extends BaseController
             //exit;
             //dump($ids);
             //exit;
-            //更新rbac_user
-            $user=M('rbac_user');
-            $user->qudao=serialize($node_id['qudao']);
-            $user->dianpu=serialize($node_id['dianpu']);
-            $user->cangwei=serialize($node_id['cangwei']);
-            $user->where("id=".session('id'))->save();
-            $role_id = $node_id['id'];
+            //更新rbac_range 先删除 再增加
+            $range=M('rbac_range');
+            $status= $range->where(array('role_id'=>$role_id))->delete();
+            $range->role_id=$role_id;
+            $range->qudao=serialize($node_id['qudao']);
+            $range->dianpu=serialize($node_id['dianpu']);
+            $range->cangwei=serialize($node_id['cangwei']);
+            $range->add();
+
             $status = M('rbac_access')->where(array('role_id'=>$role_id))->delete();
             $data = array();
-
             for ($i=0;$i<count($ids);$i++)
             {
                 $data[] = array(
@@ -361,13 +370,15 @@ class AccessController extends BaseController
         $ids=implode(",",$ids);
         $this->assign('ids',$ids);
         $this->assign('id',$id);
-        //获取用户信息
-        $login_info=$this->get_login_info();
+        //获取角色信息rbac_range
+        $range=M('rbac_range');
+        $range_info=$range->where("role_id=".$id)->find();
         //dump($login_info);
+        //渠道店铺仓位数据应该单独建立一个表 跟role关联 没考虑到这一点要更改。不要写入RBAC_USER 。浏览内容权限跟角色权限挂钩。
         //渠道
         $qudao_list=C('QUDAO_LIST');
         $qudao_list=explode(",",$qudao_list);
-        $user_qudao=unserialize($login_info['qudao']);
+        $user_qudao=unserialize($range_info['qudao']);
         $arr=array();
         for($i=0;$i<count($qudao_list);$i++)
         {
@@ -388,7 +399,7 @@ class AccessController extends BaseController
         //店铺
         $dianpu_list=C('DIANPU_LIST');
         $dianpu_list=explode(",",$dianpu_list);
-        $user_dianpu=unserialize($login_info['dianpu']);
+        $user_dianpu=unserialize($range_info['dianpu']);
         $arr=array();
         for($i=0;$i<count($dianpu_list);$i++)
         {
@@ -409,7 +420,7 @@ class AccessController extends BaseController
         //仓位
         $warehouse=M('warehouse');
         $warehouse_list=$warehouse->select();
-        $user_cangwei=unserialize($login_info['cangwei']);
+        $user_cangwei=unserialize($range_info['cangwei']);
         foreach($warehouse_list as $key=>$val)
         {
             if(in_array($warehouse_list[$key]['id'],$user_cangwei))

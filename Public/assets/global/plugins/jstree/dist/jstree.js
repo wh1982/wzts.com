@@ -5406,9 +5406,16 @@
 		 * @plugin checkbox
 		 */
 		this.get_checked = function (full) {
+
 			if(this.settings.checkbox.tie_selection) { return this.get_selected(full); }
 			return full ? $.map(this._data.checkbox.selected, $.proxy(function (i) { return this.get_node(i); }, this)) : this._data.checkbox.selected;
 		};
+
+        this.get_all_checked=function(obj)
+        {
+            obj = !obj || obj === -1 ? this.get_container() : this._get_node(obj);
+            return obj.find(".jstree-checked, .jstree-undetermined");
+        };
 		/**
 		 * get an array of all top level checked nodes (ignoring children of checked nodes) (if tie_selection is on in the settings this function will return the same as get_top_selected)
 		 * @name get_top_checked([full])

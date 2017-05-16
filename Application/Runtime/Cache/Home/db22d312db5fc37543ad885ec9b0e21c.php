@@ -464,6 +464,7 @@
                     <input type="hidden" name="id" value="<?php echo ($id); ?>">
                     <input type="hidden" name="ids" value="" id="ids">
                     <input type="hidden" name="act" value="edit">
+                    <div id="test"></div>
                 </form>
 
 
@@ -544,11 +545,15 @@
 
         //取得所有选中的节点，返回节点对象的集合
         var ids="";
-        var nodes=$("#configTree").jstree("get_checked"); //使用get_checked方法
+        var nodes=$("#configTree").jstree().get_checked(true); //使用get_checked方法
+        var nodes2=$("#configTree").jstree("get_all_checked"); //使用get_checked方法
         $('#ids').val(nodes);
-        $("#form1").submit();
+        //$("#form1").submit();
 
         //alert(nodes);
+        //alert(JSON.stringify(nodes));
+
+        document.write(JSON.stringify(nodes));
     }
 
 
