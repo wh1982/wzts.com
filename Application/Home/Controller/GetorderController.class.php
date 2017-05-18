@@ -4,36 +4,7 @@ namespace Home\Controller;
 
 class GetorderController extends BaseController
 {
-    public function get_tm_orders_test($stime='',$etime='',$pageno=1,$pagesize=100,$status='',$token='',$appkey='',$secretkey='',$gatewayurl='')
-    {
 
-        header("Content-Type:text/html; charset=utf-8");
-        Vendor('TopSdk.TopSdk');
-        //$sku=M('sku','lbpa_',C("DB_SKU"));
-        $sku=D('sku');
-        $c = new \TopClient;
-        $c->appkey = $appkey;
-        $c->secretKey = $secretkey;
-        $c->gatewayUrl = $gatewayurl;
-        $req = new \TradesSoldGetRequest;
-        $req->setFields("seller_nick,pic_path,payment,seller_rate,post_fee, receiver_name,receiver_state, receiver_address, receiver_zip,
-         receiver_mobile,receiver_phone, consign_time,received_payment, receiver_country,receiver_town,shop_pick, tid,
-          num,num_iid, status, title, type, price,discount_fee, total_fee,created, pay_time,modified,end_time, seller_flag,
-          buyer_nick,has_buyer_message, credit_card_fee,step_trade_status, step_paid_fee,mark_desc,shipping_type,adjust_fee,trade_from,orders");
-        $req->setStartCreated($stime);
-        $req->setEndCreated($etime);
-        $req->setStatus($status);
-        $req->setPageNo($pageno);
-        $req->setPageSize($pagesize);
-        $req->setUseHasNext("false");
-        $resp = $c->execute($req, $token);
-        $resp=$this->xmlToArr($resp);
-        $has_next=$resp['has_next'];
-        dump(($resp));
-        echo("<br>******************************************************");
-        //echo(json_encode($resp));
-
-    }
     public function get_tm_orders_count($stime='',$etime='',$pageno=1,$pagesize=100,$status='',$token='',$appkey='',$secretkey='',$gatewayurl='')
     {
 
@@ -389,6 +360,239 @@ class GetorderController extends BaseController
         echo('<br>>>>>>>>>>>>>>>>>>>>>>');
     }
 
+
+
+    //抓取天猫退款数据
+    public function get_origin_tm_refund_count($stime='',$etime='',$pageno=1,$pagesize=100,$status='',$token='',$appkey='',$secretkey='',$gatewayurl='',$dp_name)
+    {
+        header("Content-Type:text/html; charset=utf-8");
+        Vendor('TopSdk.TopSdk');
+
+        $c = new \TopClient;
+        $c->appkey = $appkey;
+        $c->secretKey = $secretkey;
+        $c->gatewayUrl = $gatewayurl;
+        $req = new \RefundsReceiveGetRequest;
+        $req->setFields("refund_id, tid,oid, total_fee,buyer_nick,seller_nick, created,modified, order_status, status,good_status,
+        has_good_return, refund_fee,payment, reason,desc, title,num,company_name,sid, refund_phase,refund_version,sku, attribute,outer_id,operation_contraint");
+        $req->setStartModified($stime);
+        $req->setEndModified($etime);
+        $req->setStatus($status);
+        $req->setPageNo($pageno);
+        $req->setPageSize($pagesize);
+        $req->setUseHasNext("false");
+        $resp = $c->execute($req, $token);
+        $resp=$this->xmlToArr($resp);
+        $order_count=$resp['total_results'];
+        return $order_count;
+
+    }
+    public function get_origin_tm_refund($stime='',$etime='',$pageno=1,$pagesize=100,$status='',$token='',$appkey='',$secretkey='',$gatewayurl='',$dp_name)
+    {
+        //考虑了退款订单更新问题。
+        header("Content-Type:text/html; charset=utf-8");
+        Vendor('TopSdk.TopSdk');
+        $c = new \TopClient;
+        $c->appkey = $appkey;
+        $c->secretKey = $secretkey;
+        $c->gatewayUrl = $gatewayurl;
+        $req = new \RefundsReceiveGetRequest;
+        $req->setFields("refund_id, tid,oid, total_fee,buyer_nick,seller_nick, created,modified, order_status, status,good_status,
+        has_good_return, refund_fee,payment, reason,desc, title,num,company_name,sid, refund_phase,refund_version,sku, attribute,outer_id,operation_contraint");
+        $req->setStartModified($stime);
+        $req->setEndModified($etime);
+        $req->setStatus($status);
+        $req->setPageNo($pageno);
+        $req->setPageSize($pagesize);
+        $req->setUseHasNext("true");
+        $resp = $c->execute($req, $token);
+        $resp=$this->xmlToArr($resp);
+        //$t = json_encode($resp);
+        //echo $t;
+        //exit;
+        //dump($resp);
+        //exit;
+        $refund=M('origin_tm_refund');
+        $count_success=0;
+        $count_skip=0;
+        $count_update=0;
+        //如果只有一个订单  返回的格式不一样
+        if(!(array_key_exists(0,$resp['refunds']['refund'])))
+        {
+            $t=$resp['refunds']['refund'];
+            unset($resp['refunds']['refund']);
+            $resp['refunds']['refund'][0]=$t;
+        }
+        $list=$resp['refunds']['refund'];
+        foreach($list as $key=>$val)
+        {
+            $key_list=(array_keys($val));
+            //dump($val);
+            //先判断是否存在 不存在写入 存在更新状态
+            $count=$refund->where("refund_id ='".$val['refund_id']."' ")->count();
+            if($count==0)
+            {
+
+                foreach($key_list as $k=>$v )
+                {
+                    $refund->$v=$val[$v];
+                    //dump($v);
+
+                }
+                $res=$refund->add();
+                if($res)
+                {
+                    $count_success+=1;
+                }
+
+            }
+            else
+            {
+                //判断modified是否不同 相同跳过 不同更新退款信息
+                $c_tmp=$refund->where("refund_id ='".$val['refund_id']."' ")->find();
+                if($c_tmp['modified']==$val['modified'])
+                {
+                    $count_skip+=1;
+                }
+                else//更新订单
+                {
+                    $db=M();
+                    $db->startTrans();
+                    $res1=$refund->where("refund_id ='".$val['refund_id']."' ")->delete();
+                    foreach($key_list as $k=>$v )
+                    {
+                        $refund->$v=$val[$v];
+                        //dump($v);
+
+                    }
+                    $res2=$refund->add();
+
+                    if($res1&&$res2)
+                    {
+                        $count_update+=1;
+                        $db->commit();
+
+                    }
+                    else
+                    {
+                        $db->rollback();
+                    }
+
+                }
+            }
+
+
+
+
+        }
+        echo("<br>新增记录:".$count_success);
+        echo("<br>相同记录:".$count_skip);
+        echo("<br>更新记录:".$count_update);
+        echo("<br>**********************************");
+
+
+    }
+    public function get_origin_tm_pingjia_count($stime='',$etime='',$pageno=1,$pagesize=100,$status='',$token='',$appkey='',$secretkey='',$gatewayurl='',$dp_name)
+    {
+        header("Content-Type:text/html; charset=utf-8");
+        Vendor('TopSdk.TopSdk');
+        $c = new \TopClient;
+        $c->appkey = $appkey;
+        $c->secretKey = $secretkey;
+        $c->gatewayUrl = $gatewayurl;
+        $req = new \TraderatesGetRequest;
+        $req->setFields(" tid,oid, role,nick,result, created,rated_nick,item_title,item_price,content,reply,num_iid, valid_score");
+        $req->setRateType("get");
+        $req->setRole("buyer");
+        $req->setStartDate($stime);
+        $req->setEndDate($etime);
+        $req->setPageNo($pageno);
+        $req->setPageSize($pagesize);
+        $req->setUseHasNext("false");
+        $resp = $c->execute($req, $token);
+        $resp=$this->xmlToArr($resp);
+        $order_count=$resp['total_results'];
+        return $order_count;
+
+    }
+    public function get_origin_tm_pingjia($stime='',$etime='',$pageno=1,$pagesize=100,$status='',$token='',$appkey='',$secretkey='',$gatewayurl='',$dp_name)
+    {
+
+        header("Content-Type:text/html; charset=utf-8");
+        Vendor('TopSdk.TopSdk');
+        $c = new \TopClient;
+        $c->appkey = $appkey;
+        $c->secretKey = $secretkey;
+        $c->gatewayUrl = $gatewayurl;
+        $req = new \TraderatesGetRequest;
+        $req->setFields(" tid,oid, role,nick,result, created,rated_nick,item_title,item_price,content,reply,num_iid, valid_score");
+        $req->setRateType("get");
+        $req->setRole("buyer");
+        $req->setStartDate($stime);
+        $req->setEndDate($etime);
+        $req->setPageNo($pageno);
+        $req->setPageSize($pagesize);
+        $req->setUseHasNext("true");
+        $resp = $c->execute($req, $token);
+        $resp=$this->xmlToArr($resp);
+        //$t = json_encode($resp);
+        //echo $t;
+        //exit;
+        //dump($resp);
+        //exit;
+        $pingjia=M('origin_tm_pingjia');
+        $count_success=0;
+        $count_skip=0;
+
+        //如果只有一个订单  返回的格式不一样
+        if(!(array_key_exists(0,$resp['trade_rates']['trade_rate'])))
+        {
+            $t=$resp['trade_rates']['trade_rate'];
+            unset($resp['trade_rates']['trade_rate']);
+            $resp['trade_rates']['trade_rate'][0]=$t;
+        }
+        $list=$resp['trade_rates']['trade_rate'];
+        //dump($list);
+        //exit;
+        foreach($list as $key=>$val)
+        {
+            $key_list=(array_keys($val));
+            $count=$pingjia->where( array("oid"=>$val['oid'],"nick"=>$val['nick']) )->count();
+            if($count==0)
+            {
+
+                foreach($key_list as $k=>$v )
+                {
+                    $pingjia->$v=$val[$v];
+                    //dump($v);
+
+                }
+                $res=$pingjia->add();
+                if($res)
+                {
+                    $count_success+=1;
+                }
+
+            }
+            else
+            {
+
+
+                    $count_skip+=1;
+
+            }
+
+
+
+
+        }
+        echo("<br>新增记录:".$count_success);
+        echo("<br>相同记录:".$count_skip);
+
+        echo("<br>**********************************");
+
+
+    }
     public function get_jd_orders_count ($stime='',$etime='',$pageno=1,$pagesize=100,$status='',$token='',$appkey='',$secretkey='',$gatewayurl='')
     {
         header("Content-Type:text/html; charset=utf-8");
@@ -530,6 +734,216 @@ class GetorderController extends BaseController
         }//for end
         echo("<br>京东新增:".$count_success);
         echo("<br>京东回滚:".$count_rollback);
+        echo("<br>京东已存在跳过:".$count_skip);
+        echo('<br>>>>>>>>>>>>>>>>>>>>>>');
+
+    }
+
+    public function get_origin_jd_orders($stime='',$etime='',$pageno=1,$pagesize=100,$status='',$token='',$appkey='',$secretkey='',$gatewayurl='',$dp_name)
+    {
+        header("Content-Type:text/html; charset=utf-8");
+        Vendor('JdSdk.JdSdk');
+        $c = new \JdClient();
+        $c->appKey = $appkey;
+        $c->appSecret = $secretkey;
+        $c->accessToken = $token;
+        $c->serverUrl = $gatewayurl;
+        $req = new \OrderSearchRequest();
+        $req->setStartDate($stime);
+        $req->setEndDate($etime);
+        $req->setOrderState( $status );
+        $req->setPage($pageno);
+        $req->setPageSize($pagesize);
+        $req->setDateType(1);
+        $resp = $c->execute($req, $c->accessToken);
+        $resp=$this->object2array($resp);
+        $list=$resp['order_search']['order_info_list'];
+        //dump($resp['order_search']['order_total']);
+        //exit;
+        //$t = json_encode($resp);
+        //echo $t;
+        //dump($resp);
+        //exit;
+        $sku=D('sku');
+        $orders=M('origin_jd_orders');
+        $orders_list=M('origin_jd_orders_list');
+        $count_success=0;
+        $count_skip=0;
+        $count_rollback=0;
+        for($i=0;$i<count($list);$i++)
+        {
+
+            $db=M();
+            $db->startTrans();
+            //先看订单是否已经抓取过
+            $order_count=$orders->where("order_id='".$list[$i]['order_id']."'")->count();
+            if($order_count==0)
+            {
+                //$orders->qudao="京东";
+                //$orders->dianpu=$dp_name;
+                $orders->modified=$list[$i]['modified'];
+                $orders->customs=$list[$i]['customs'];
+                $orders->order_id=$list[$i]['order_id'];
+                $orders->vender_id=$list[$i]['vender_id'];
+                $orders->pay_type=$list[$i]['pay_type'];
+                $orders->order_total_price=$list[$i]['order_total_price'];
+                $orders->order_seller_price=$list[$i]['order_seller_price'];
+                $orders->order_payment=$list[$i]['order_payment'];
+                $orders->freight_price=$list[$i]['freight_price'];
+                $orders->seller_discount=$list[$i]['seller_discount'];
+                $orders->order_state=$list[$i]['order_state'];
+                $orders->delivery_type=$list[$i]['delivery_type'];
+                $orders->invoice_info=$list[$i]['invoice_info'];
+                $orders->order_remark=$list[$i]['order_remark'];
+                $orders->order_start_time=$list[$i]['order_start_time'];
+                $orders->consignee_info=serialize($list[$i]['consignee_info']);
+                $orders->item_info_list=serialize($list[$i]['item_info_list']);
+                $orders->coupon_detail_list=serialize($list[$i]['coupon_detail_list']);
+                $orders->order_type=$list[$i]['order_type'];
+                $orders->order_source=$list[$i]['order_source'];
+                $orders->store_order=$list[$i]['store_order'];
+                $orders->customs_model=$list[$i]['customs_model'];
+                $orders->order_sign=$list[$i]['order_sign'];
+                $result=$orders->add();
+
+                $item_info_list=$list[$i]['item_info_list'];
+                $coupon_detail_list=$list[$i]['coupon_detail_list'];
+                $item_info_amount = count($item_info_list);
+                $coupon_list=array();
+                foreach($coupon_detail_list as $k => $v)
+                {
+                    if(!empty($v['sku_id']))
+                    {
+                        $coupon_list[$v['sku_id']] = $v['coupon_price'];
+                    }
+                }
+                for($j=0;$j<count($item_info_list);$j++)
+                {
+                    $orders_list->order_id=$list[$i]['order_id'];
+
+                    $orders_list->sku_id=$item_info_list[$j]['sku_id'];
+                    $orders_list->outer_sku_id=$item_info_list[$j]['outer_sku_id'];
+                    $orders_list->sku_name=$item_info_list[$j]['sku_name'];
+                    $orders_list->jd_price=$item_info_list[$j]['jd_price'];
+                    $orders_list->gift_point=$item_info_list[$j]['gift_point'];
+                    $orders_list->ware_id=$item_info_list[$j]['ware_id'];
+                    $orders_list->item_total=$item_info_list[$j]['item_total'];
+                    $orders_list->coupon_price=(isset($coupon_list[$item_info_list[$j]['sku_id']])?$coupon_list[$item_info_list[$j]['sku_id']]:0)/$item_info_list[$j]['item_total'];
+                    $orders_list->payment=($item_info_list[$j]['jd_price']*$item_info_list[$j]['item_total'])-(isset($coupon_list[$item_info_list[$j]['sku_id']])?$coupon_list[$item_info_list[$j]['sku_id']]:0);
+                    $result2=$orders_list->add();
+                }
+
+
+                if($result&&$result2)
+                {
+                    $count_success+=1;
+                    $db->commit();
+                }
+                else
+                {
+                    $count_rollback+=1;
+                    $db->rollback();
+                }
+            }
+            else//已经抓取过
+            {
+                $count_skip+=1;
+            }
+
+
+        }//for end
+        echo("<br>京东新增:".$count_success);
+        echo("<br>京东回滚:".$count_rollback);
+        echo("<br>京东已存在跳过:".$count_skip);
+        echo('<br>>>>>>>>>>>>>>>>>>>>>>');
+
+    }
+    public function get_origin_jd_refund_count($stime='',$etime='',$pageno=1,$pagesize=100,$status='',$token='',$appkey='',$secretkey='',$gatewayurl='',$dp_name)
+    {
+
+        header("Content-Type:text/html; charset=utf-8");
+        Vendor('JdSdk.JdSdk');
+        $c = new \JdClient();
+        $c->appKey = $appkey;
+        $c->appSecret = $secretkey;
+        $c->accessToken = $token;
+        $c->serverUrl = $gatewayurl;
+        $req = new \PopAfsSoaRefundapplyQueryPageListRequest();
+        $req->setStatus($status );
+        $req->setApplyTimeStart($stime);
+        $req->setApplyTimeEnd($etime);
+        /* 审核时间 用在更新退款状态？
+        $req->setCheckTimeStart();
+        $req->setCheckTimeEnd();
+        */
+        $req->setPageIndex($pageno);
+        $req->setPageSize($pagesize);
+        $resp = $c->execute($req, $c->accessToken);
+        $resp=$this->object2array($resp);
+        return ($resp['queryResult']['totalCount']);
+
+    }
+    public function get_origin_jd_refund($stime='',$etime='',$pageno=1,$pagesize=100,$status='',$token='',$appkey='',$secretkey='',$gatewayurl='',$dp_name)
+    {
+        header("Content-Type:text/html; charset=utf-8");
+        Vendor('JdSdk.JdSdk');
+        $c = new \JdClient();
+        $c->appKey = $appkey;
+        $c->appSecret = $secretkey;
+        $c->accessToken = $token;
+        $c->serverUrl = $gatewayurl;
+        $req = new \PopAfsSoaRefundapplyQueryPageListRequest();
+        $req->setStatus($status );
+        $req->setApplyTimeStart($stime);
+        $req->setApplyTimeEnd($etime);
+        /* 审核时间 用在更新退款状态？
+        $req->setCheckTimeStart();
+        $req->setCheckTimeEnd();
+        */
+        $req->setPageIndex($pageno);
+        $req->setPageSize($pagesize);
+        $resp = $c->execute($req, $c->accessToken);
+        $resp=$this->object2array($resp);
+        //$t = json_encode($resp);
+        //echo $t;
+        //dump($resp);
+        //exit;
+        $refund=M('origin_jd_refund');
+        $count_success=0;
+        $count_skip=0;
+        $list=$resp['queryResult']['result'];
+        //dump($resp['queryResult']['totalCount']);
+        //exit;
+        foreach($list as $key=>$val)
+        {
+            $key_list=(array_keys($val));
+            $count=$refund->where( array("id"=>$val['id']) )->count();
+            if($count==0)
+            {
+
+                foreach($key_list as $k=>$v )
+                {
+                    $refund->$v=$val[$v];
+                    //dump($v);
+
+                }
+                $res=$refund->add();
+                if($res)
+                {
+                    $count_success+=1;
+                }
+
+            }
+            else
+            {
+
+
+                $count_skip+=1;
+
+            }
+
+        }
+        echo("<br>京东新增:".$count_success);
         echo("<br>京东已存在跳过:".$count_skip);
         echo('<br>>>>>>>>>>>>>>>>>>>>>>');
 
