@@ -1,0 +1,18 @@
+[ 2017-05-19T08:44:31+08:00 ] 127.0.0.1 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000053s ]
+ERR: 无法加载模块:Favicon
+
+[ 2017-05-19T08:49:16+08:00 ] 127.0.0.1 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000048s ]
+ERR: 无法加载模块:Favicon
+
+[ 2017-05-19T08:49:16+08:00 ] 127.0.0.1 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000048s ]
+ERR: 无法加载模块:Favicon
+
