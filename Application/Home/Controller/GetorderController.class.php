@@ -676,6 +676,8 @@ class GetorderController extends BaseController
         $count_no=0;
         $count_update=0;
         $count_rollback=0;
+        $count_skip=0;
+        $c_id_list='';
 
         //如果只有一个订单 trade 返回的格式不一样
         if(!(array_key_exists(0,$resp['trades']['trade'])))
@@ -707,18 +709,17 @@ class GetorderController extends BaseController
                 //dump($c_old_orders);
                 //dump($c_old_orders_list);
                 //dump($list[$i]);
-                $c_html="<br>跟踪记录:";
-                $c_html.="-订单号:-".$c_old_orders['tid'];
-                $c_html.="-原修改时间-".$c_old_orders['modified'];
-                $c_html.="-现修改时间-".$list[$i]['modified'];
-                $c_html.="-原付款时间-".$c_old_orders['pay_time'];
-                $c_html.="-现付款时间-".$list[$i]['pay_time'];
-                $c_html.="-原发货时间-".$c_old_orders['consign_time'];
-                $c_html.="-现发货时间-".$list[$i]['consign_time'];
-                $c_html.="-原状态-".$c_old_orders['status'];
-                $c_html.="-现状态-".$list[$i]['status'];
-
-                echo($c_html);
+                //$c_html="<br>跟踪记录:";
+                //$c_html.="-订单号:-".$c_old_orders['tid'];
+                //$c_html.="-原修改时间-".$c_old_orders['modified'];
+                //$c_html.="-现修改时间-".$list[$i]['modified'];
+                //$c_html.="-原付款时间-".$c_old_orders['pay_time'];
+                //$c_html.="-现付款时间-".$list[$i]['pay_time'];
+                //$c_html.="-原发货时间-".$c_old_orders['consign_time'];
+                //$c_html.="-现发货时间-".$list[$i]['consign_time'];
+                //$c_html.="-原状态-".$c_old_orders['status'];
+                //$c_html.="-现状态-".$list[$i]['status'];
+                //echo($c_html);
 
 
                 $db=M();
@@ -726,102 +727,118 @@ class GetorderController extends BaseController
                 //$orders->qudao="天猫";
                 //$orders->dianpu=$dp_name;
                 // 需要根据modified 做判断 不变就不需要更新
-                $orders->adjust_fee=$list[$i]['adjust_fee'];
-                $orders->buyer_nick=$list[$i]['buyer_nick'];
-                $orders->consign_time=$list[$i]['consign_time'];
-                $orders->created=$list[$i]['created'];
-                $orders->end_time=$list[$i]['end_time'];
-                $orders->discount_fee=$list[$i]['discount_fee'];
-                $orders->has_buyer_message=$list[$i]['has_buyer_message'];//
-                $orders->modified=$list[$i]['modified'];
-                $orders->num=$list[$i]['num'];
-                $orders->num_iid=$list[$i]['num_iid'];
-                $orders->pay_time=$list[$i]['pay_time'];
-                $orders->payment=$list[$i]['payment'];
-                $orders->pic_path=$list[$i]['pic_path'];
-                $orders->post_fee=$list[$i]['post_fee'];
-                $orders->price=$list[$i]['price'];
-                $orders->received_payment=$list[$i]['received_payment'];
-                $orders->receiver_address=$list[$i]['receiver_address'];
-                $orders->receiver_mobile=$list[$i]['receiver_mobile'];
-                $orders->receiver_phone=$list[$i]['receiver_phone'];
-                $orders->receiver_name=$list[$i]['receiver_name'];
-                $orders->receiver_state=$list[$i]['receiver_state'];
-                $orders->receiver_town=$list[$i]['receiver_town'];
-                $orders->receiver_zip=$list[$i]['receiver_zip'];
-                $orders->seller_flag=$list[$i]['seller_flag'];
-                $orders->seller_nick=$list[$i]['seller_nick'];
-                $orders->seller_rate=$list[$i]['seller_rate'];//
-                $orders->shipping_type=$list[$i]['shipping_type'];
-                $orders->status=$list[$i]['status'];
-                $orders->tid=$list[$i]['tid'];
-                $orders->title=$list[$i]['title'];
-                $orders->total_fee=$list[$i]['total_fee'];
-                $orders->trade_from=$list[$i]['trade_from'];
-                $orders->type=$list[$i]['type'];
-                $orders->credit_card_fee=$list[$i]['credit_card_fee'];
-                $orders->remark=serialize($list[$i]);
-                $result=$orders->where("tid='".$list[$i]['tid']."'")->save();
-                //echo("<br>");
-                //echo($orders->getlastsql());
-                //echo("<br>");
-
-                //删除orders_list 相关数据
-                $result3=$orders_list->where("tid='".$list[$i]['tid']."'")->delete();
-
-                if(!(array_key_exists(0,$list[$i]['orders']['order'])))
+                if($c_old_orders['modified']==$list[$i]['modified'])
                 {
-                    $t=$list[$i]['orders']['order'];
-                    unset($list[$i]['orders']['order']);
-                    $list[$i]['orders']['order'][0]=$t;
-                }
-                $list2=$list[$i]['orders']['order'];
-                $result2=1;
-                for($j=0;$j<count($list2);$j++)
-                {
+                    $count_skip+=1;
 
-                    $orders_list->tid=$list[$i]['tid'];
-                    $orders_list->adjust_fee=$list2[$j]['adjust_fee'];
-                    $orders_list->buyer_rate=$list2[$j]['buyer_rate'];
-                    $orders_list->cid=$list2[$j]['cid'];
-                    $orders_list->consign_time=$list2[$j]['consign_time'];
-                    $orders_list->discount_fee=$list2[$j]['discount_fee'];
-                    $orders_list->invoice_no=$list2[$j]['invoice_no'];
-                    $orders_list->is_daixiao=$list2[$j]['is_daixiao'];
-                    $orders_list->logistics_company=$list2[$j]['logistics_company'];
-                    $orders_list->num=$list2[$j]['num'];
-                    $orders_list->num_iid=$list2[$j]['num_iid'];
-                    $orders_list->oid=$list2[$j]['oid'];
-                    $orders_list->outer_iid=$list2[$j]['outer_iid'];
-                    $orders_list->outer_sku_id=$list2[$j]['outer_sku_id'];
-                    $orders_list->payment=$list2[$j]['payment'];
-                    $orders_list->pic_path=$list2[$j]['pic_path'];
-                    $orders_list->price=$list2[$j]['price'];
-                    $orders_list->refund_status=$list2[$j]['refund_status'];
-                    $orders_list->seller_rate=$list2[$j]['seller_rate'];
-                    $orders_list->seller_type=$list2[$j]['seller_type'];
-                    $orders_list->shipping_type=$list2[$j]['shipping_type'];
-                    $orders_list->sku_id=$list2[$j]['sku_id'];
-                    $orders_list->sku_properties_name=$list2[$j]['sku_properties_name'];
-                    $orders_list->status=$list2[$j]['status'];
-                    $orders_list->title=$list2[$j]['title'];
-                    $orders_list->total_fee=$list2[$j]['total_fee'];
-                    $tmp_res=$orders_list->add();
-                    $result2=$result2*$tmp_res;
-                }
-
-
-                if($result&&$result2&&$result3)
-                {
-                    $count_update+=1;
-                    $db->commit();
                 }
                 else
                 {
-                    $count_rollback+=1;
-                    $db->rollback();
+                    $c_id_list.=$list[$i]['tid'].",";
+                    $orders->adjust_fee=$list[$i]['adjust_fee'];
+                    $orders->buyer_nick=$list[$i]['buyer_nick'];
+                    $orders->consign_time=$list[$i]['consign_time'];
+                    $orders->created=$list[$i]['created'];
+                    $orders->end_time=$list[$i]['end_time'];
+                    $orders->discount_fee=$list[$i]['discount_fee'];
+                    $orders->has_buyer_message=$list[$i]['has_buyer_message'];//
+                    $orders->modified=$list[$i]['modified'];
+                    $orders->num=$list[$i]['num'];
+                    $orders->num_iid=$list[$i]['num_iid'];
+                    $orders->pay_time=$list[$i]['pay_time'];
+                    $orders->payment=$list[$i]['payment'];
+                    $orders->pic_path=$list[$i]['pic_path'];
+                    $orders->post_fee=$list[$i]['post_fee'];
+                    $orders->price=$list[$i]['price'];
+                    $orders->received_payment=$list[$i]['received_payment'];
+                    $orders->receiver_address=$list[$i]['receiver_address'];
+                    $orders->receiver_mobile=$list[$i]['receiver_mobile'];
+                    $orders->receiver_phone=$list[$i]['receiver_phone'];
+                    $orders->receiver_name=$list[$i]['receiver_name'];
+                    $orders->receiver_state=$list[$i]['receiver_state'];
+                    $orders->receiver_town=$list[$i]['receiver_town'];
+                    $orders->receiver_zip=$list[$i]['receiver_zip'];
+                    $orders->seller_flag=$list[$i]['seller_flag'];
+                    $orders->seller_nick=$list[$i]['seller_nick'];
+                    $orders->seller_rate=$list[$i]['seller_rate'];//
+                    $orders->shipping_type=$list[$i]['shipping_type'];
+                    $orders->status=$list[$i]['status'];
+                    $orders->tid=$list[$i]['tid'];
+                    $orders->title=$list[$i]['title'];
+                    $orders->total_fee=$list[$i]['total_fee'];
+                    $orders->trade_from=$list[$i]['trade_from'];
+                    $orders->type=$list[$i]['type'];
+                    $orders->credit_card_fee=$list[$i]['credit_card_fee'];
+                    $orders->remark=serialize($list[$i]);
+                    //add
+                    $orders->orders=serialize($list[$i]['orders']);
+                    $orders->test1=serialize($c_old_orders);
+                    $orders->test2=serialize($c_old_orders_list);
+                    //add end
+                    $result=$orders->where("tid='".$list[$i]['tid']."'")->save();
+                    //echo("<br>");
+                    //echo($orders->getlastsql());
+                    //echo("<br>");
+
+                    //删除orders_list 相关数据
+                    $result3=$orders_list->where("tid='".$list[$i]['tid']."'")->delete();
+
+                    if(!(array_key_exists(0,$list[$i]['orders']['order'])))
+                    {
+                        $t=$list[$i]['orders']['order'];
+                        unset($list[$i]['orders']['order']);
+                        $list[$i]['orders']['order'][0]=$t;
+                    }
+                    $list2=$list[$i]['orders']['order'];
+                    $result2=1;
+                    for($j=0;$j<count($list2);$j++)
+                    {
+
+                        $orders_list->tid=$list[$i]['tid'];
+                        $orders_list->adjust_fee=$list2[$j]['adjust_fee'];
+                        $orders_list->buyer_rate=$list2[$j]['buyer_rate'];
+                        $orders_list->cid=$list2[$j]['cid'];
+                        $orders_list->consign_time=$list2[$j]['consign_time'];
+                        $orders_list->discount_fee=$list2[$j]['discount_fee'];
+                        $orders_list->invoice_no=$list2[$j]['invoice_no'];
+                        $orders_list->is_daixiao=$list2[$j]['is_daixiao'];
+                        $orders_list->logistics_company=$list2[$j]['logistics_company'];
+                        $orders_list->num=$list2[$j]['num'];
+                        $orders_list->num_iid=$list2[$j]['num_iid'];
+                        $orders_list->oid=$list2[$j]['oid'];
+                        $orders_list->outer_iid=$list2[$j]['outer_iid'];
+                        $orders_list->outer_sku_id=$list2[$j]['outer_sku_id'];
+                        $orders_list->payment=$list2[$j]['payment'];
+                        $orders_list->pic_path=$list2[$j]['pic_path'];
+                        $orders_list->price=$list2[$j]['price'];
+                        $orders_list->refund_status=$list2[$j]['refund_status'];
+                        $orders_list->seller_rate=$list2[$j]['seller_rate'];
+                        $orders_list->seller_type=$list2[$j]['seller_type'];
+                        $orders_list->shipping_type=$list2[$j]['shipping_type'];
+                        $orders_list->sku_id=$list2[$j]['sku_id'];
+                        $orders_list->sku_properties_name=$list2[$j]['sku_properties_name'];
+                        $orders_list->status=$list2[$j]['status'];
+                        $orders_list->title=$list2[$j]['title'];
+                        $orders_list->total_fee=$list2[$j]['total_fee'];
+                        $tmp_res=$orders_list->add();
+                        $result2=$result2*$tmp_res;
+                    }
+
+
+                    if($result&&$result2&&$result3)
+                    {
+                        $count_update+=1;
+                        $db->commit();
+                    }
+                    else
+                    {
+                        $count_rollback+=1;
+                        $db->rollback();
+                    }
+                    //echo("<br>r1=".$result." r2=".$result2." r3=".$result3);
+
                 }
-                echo("<br>r1=".$result." r2=".$result2." r3=".$result3);
+
 
 
             }//if end  判断是否抓取过
@@ -831,11 +848,11 @@ class GetorderController extends BaseController
 
 
         }//for end
-
-
-        echo("<br>天猫无记录:".$count_no);
-        echo("<br>天猫更新:".$count_update);
-        echo("<br>天猫回滚:".$count_rollback);
+        echo("<br>".$c_id_list);
+        echo("<br>无记录:".$count_no);
+        echo("<br>跳过:".$count_skip);
+        echo("<br>更新:".$count_update);
+        echo("<br>回滚:".$count_rollback);
 
         echo('<br>>>>>>>>>>>>>>>>>>>>>>');
     }

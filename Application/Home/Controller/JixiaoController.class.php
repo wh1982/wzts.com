@@ -37,74 +37,82 @@ class JixiaoController extends BaseController
        $dayu=10;//大于倍数提成多少单位元
        $xiaoyu=5;//小于倍数提成多少单位元
        //默认查询当天数据
+       $orders=M('view_orders');
+       $warehouse=M('warehouse');
+       $packuser=D('PackUser');
+       $sku=D('sku');
        $default_stime=strtotime(date("Y-m-d"),time());
        //$default_stime=date("Y-m-d H:i:s",$default_stime);
        $default_etime = strtotime(date("Y-m-d"),time())+60*60*24;
        //$default_etime=date("Y-m-d H:i:s", $default_etime);
-
-       if(!empty($_REQUEST['search_stime']))
+       $search_stime=I("request.search_stime");
+       $search_etime=I("request.search_etime");
+       $qudao=I("request.qudao");
+       $dianpu=I("request.dianpu");
+       $cangwei=I("request.cangwei");
+       $lururen=I("request.lururen");
+       $gongyingshang=I("request.gongyingshang");
+       $title=I("request.title");
+       $sku=I("request.sku");
+       $order_id=I("request.order_id");
+       if(!empty($search_stime))
        {
-           $search_stime=strtotime($_REQUEST['search_stime']);
+           $search_stime=strtotime($search_stime);
        }
        else
        {
            $search_stime=$default_stime;
        }
        $search_stime=date('Y-m-d H:i:s',$search_stime);
-       if(!empty($_REQUEST['search_etime']))
+
+       if(!empty($search_etime))
        {
-           $search_etime=strtotime($_REQUEST['search_etime']);
+           $search_etime=strtotime($search_etime);
        }
        else
        {
            $search_etime=$default_etime;
        }
        $search_etime=date('Y-m-d H:i:s',$search_etime);
-
-
-       $orders=M('view_orders');
-       $warehouse=M('warehouse');
-       $packuser=D('PackUser');
-       $sku=D('sku');
        //and TO_DAYS( created_time ) - TO_DAYS( jiandang_time ) >=0 不需要 实际不会有这种情况
        $arraywhere=" 1=1 and (TO_DAYS( created_time ) - TO_DAYS( jiandang_time ) <=".$num_day." ) 
 	   and oid_status='TRADE_FINISHED' and  (created_time >='".$search_stime."' and created_time <='".$search_etime."')";
 
        //修改
-       if(!empty($_REQUEST['qudao']))
+       if(!empty($qudao))
        {
-           $arraywhere.=" and qudao like '%".trim($_REQUEST["qudao"])."%' ";
+           $arraywhere.=" and qudao like '%".trim($qudao)."%' ";
        }
-       if(!empty($_REQUEST['dianpu']))
+       if(!empty($dianpu))
        {
-           $arraywhere.=" and dianpu like '%".trim($_REQUEST["dianpu"])."%' ";
+           $arraywhere.=" and dianpu like '%".trim($dianpu)."%' ";
        }
-       if(!empty($_REQUEST['cangwei']))//转化成ID
+       if(!empty($cangwei))//转化成ID
        {
-           $cangwei=$warehouse->where("name like '%".trim($_REQUEST['cangwei'])."%'")->getfield('id');
+           $cangwei=$warehouse->where("name like '%".trim($cangwei)."%'")->getfield('id');
            $arraywhere.=" and cangwei ='".$cangwei."' ";
        }
-       if(!empty($_REQUEST['lururen']))//转化成ID
+       if(!empty($lururen))//转化成ID
        {
-           $lururen=$packuser->where("user_login like '%".trim($_REQUEST['lururen'])."%'")->getfield('id');
+           $lururen=$packuser->where("user_login like '%".trim($lururen)."%'")->getfield('id');
            $arraywhere.=" and lururen ='".$lururen."' ";
        }
 
-       if(!empty($_REQUEST['gongyingshang']))
+       if(!empty($gongyingshang))
        {
-           $arraywhere.=" and gongyingshang like '%".trim($_REQUEST["gongyingshang"])."%' ";
+           $arraywhere.=" and gongyingshang like '%".trim($gongyingshang)."%' ";
        }
-       if(!empty($_REQUEST['title']))
+       if(!empty($title))
        {
-           $arraywhere.=" and pinlei like '%".trim($_REQUEST["title"])."%' ";
+           $arraywhere.=" and pinlei like '%".trim($title)."%' ";
        }
-       if(!empty($_REQUEST['sku']))
+       if(!empty($sku))
        {
-           $arraywhere.=" and outer_sku_id like '%".trim($_REQUEST["sku"])."%' ";
+           $arraywhere.=" and outer_sku_id like '%".trim($sku)."%' ";
        }
-       if(!empty($_REQUEST['order_id']))
+       if(!empty($order_id))
        {
-           $arraywhere.=" and order_id like '%".trim($_REQUEST["order_id"])."%' ";
+           $arraywhere.=" and order_id like '%".trim($order_id)."%' ";
        }
        //dump($arraywhere);
        //exit;
@@ -142,7 +150,7 @@ class JixiaoController extends BaseController
                $list[$i]['cangwei_name']="无记录";
            }
            */
-           $user_login=$packuser->where("id=".$list[$i]['lururen'])->getfield('user_login');
+           $user_login=$packuser->where( array( "id"=>$list[$i]['lururen'] ) )->getfield('user_login');
            //$pinlei=$sku->where("taoguanhao='".$list[$i]['outer_sku_id']."'")->getfield('pinlei');
            //$created_dt=$sku->where("taoguanhao='".$list[$i]['outer_sku_id']."'")->getfield('CREATED_DT');
            //$list[$i]['cangwei_name']=$warehouse->where("id=".$list[$i]['cangwei'])->getfield('name');
@@ -195,7 +203,7 @@ class JixiaoController extends BaseController
 	   
 
    }
-    
+
    public function ajax_jx_get_shejibu()
    {
        //配置文件 稍后写入数据库
@@ -204,23 +212,39 @@ class JixiaoController extends BaseController
        $dayu=10;//大于倍数提成多少
        $xiaoyu=5;//小于倍数提成多少
        //默认查询当天数据
+       $orders=M('view_orders');
+       $warehouse=M('warehouse');
+       $packuser=D('PackUser');
+       $sku=D('sku');
+
        $default_stime=strtotime(date("Y-m-d"),time());
        //$default_stime=date("Y-m-d H:i:s",$default_stime);
        $default_etime = strtotime(date("Y-m-d"),time())+60*60*24;
        //$default_etime=date("Y-m-d H:i:s", $default_etime);
 
-       if(!empty($_REQUEST['search_stime']))
+       $search_stime=I("request.search_stime");
+       $search_etime=I("request.search_etime");
+       $qudao=I("request.qudao");
+       $dianpu=I("request.dianpu");
+       $cangwei=I("request.cangwei");
+       $lururen=I("request.lururen");
+       $gongyingshang=I("request.gongyingshang");
+       $title=I("request.title");
+       $sku=I("request.sku");
+       $order_id=I("request.order_id");
+       if(!empty($search_stime))
        {
-           $search_stime=strtotime($_REQUEST['search_stime']);
+           $search_stime=strtotime($search_stime);
        }
        else
        {
            $search_stime=$default_stime;
        }
        $search_stime=date('Y-m-d H:i:s',$search_stime);
-       if(!empty($_REQUEST['search_etime']))
+
+       if(!empty($search_etime))
        {
-           $search_etime=strtotime($_REQUEST['search_etime']);
+           $search_etime=strtotime($search_etime);
        }
        else
        {
@@ -228,50 +252,45 @@ class JixiaoController extends BaseController
        }
        $search_etime=date('Y-m-d H:i:s',$search_etime);
 
-
-       $orders=M('view_orders');
-       $warehouse=M('warehouse');
-       $packuser=D('PackUser');
-       $sku=D('sku');
        //and TO_DAYS( created_time ) - TO_DAYS( jiandang_time ) >=0 不需要 实际不会有这种情况
        $arraywhere=" 1=1 and (TO_DAYS( created_time ) - TO_DAYS( jiandang_time ) <=".$num_day." ) 
 	and oid_status='TRADE_FINISHED' and  (created_time >='".$search_stime."' and created_time <='".$search_etime."')";
 
        //修改
-       if(!empty($_REQUEST['qudao']))
+       if(!empty($qudao))
        {
-           $arraywhere.=" and qudao like '%".trim($_REQUEST["qudao"])."%' ";
+           $arraywhere.=" and qudao like '%".trim($qudao)."%' ";
        }
-       if(!empty($_REQUEST['dianpu']))
+       if(!empty($dianpu))
        {
-           $arraywhere.=" and dianpu like '%".trim($_REQUEST["dianpu"])."%' ";
+           $arraywhere.=" and dianpu like '%".trim($dianpu)."%' ";
        }
-       if(!empty($_REQUEST['cangwei']))//转化成ID
+       if(!empty($cangwei))//转化成ID
        {
-           $cangwei=$warehouse->where("name like '%".trim($_REQUEST['cangwei'])."%'")->getfield('id');
+           $cangwei=$warehouse->where("name like '%".trim($cangwei)."%'")->getfield('id');
            $arraywhere.=" and cangwei ='".$cangwei."' ";
        }
-       if(!empty($_REQUEST['lururen']))//转化成ID
+       if(!empty($lururen))//转化成ID
        {
-           $lururen=$packuser->where("user_login like '%".trim($_REQUEST['lururen'])."%'")->getfield('id');
+           $lururen=$packuser->where("user_login like '%".trim($lururen)."%'")->getfield('id');
            $arraywhere.=" and lururen ='".$lururen."' ";
        }
 
-       if(!empty($_REQUEST['gongyingshang']))
+       if(!empty($gongyingshang))
        {
-           $arraywhere.=" and gongyingshang like '%".trim($_REQUEST["gongyingshang"])."%' ";
+           $arraywhere.=" and gongyingshang like '%".trim($gongyingshang)."%' ";
        }
-       if(!empty($_REQUEST['title']))
+       if(!empty($title))
        {
-           $arraywhere.=" and pinlei like '%".trim($_REQUEST["title"])."%' ";
+           $arraywhere.=" and pinlei like '%".trim($title)."%' ";
        }
-       if(!empty($_REQUEST['sku']))
+       if(!empty($sku))
        {
-           $arraywhere.=" and outer_sku_id like '%".trim($_REQUEST["sku"])."%' ";
+           $arraywhere.=" and outer_sku_id like '%".trim($sku)."%' ";
        }
-       if(!empty($_REQUEST['order_id']))
+       if(!empty($order_id))
        {
-           $arraywhere.=" and order_id like '%".trim($_REQUEST["order_id"])."%' ";
+           $arraywhere.=" and order_id like '%".trim($order_id)."%' ";
        }
        $list=$orders->where($arraywhere)->order('created_time asc')->select();
        $iTotalRecords = count($list);
@@ -307,7 +326,8 @@ class JixiaoController extends BaseController
                $list[$i]['cangwei_name']="无记录";
            }
            */
-           $user_login=$packuser->where("id=".$list[$i]['lururen'])->getfield('user_login');
+
+           $user_login=$packuser->where( array( "id"=>$list[$i]['lururen'] ) )->getfield('user_login');
            //$pinlei=$sku->where("taoguanhao='".$list[$i]['outer_sku_id']."'")->getfield('pinlei');
            //$created_dt=$sku->where("taoguanhao='".$list[$i]['outer_sku_id']."'")->getfield('CREATED_DT');
            //$list[$i]['cangwei_name']=$warehouse->where("id=".$list[$i]['cangwei'])->getfield('name');
@@ -374,68 +394,77 @@ class JixiaoController extends BaseController
         $tb_qujian2=6;
         $tb_qujian3=8;
         //默认查询当天数据
+        $jixiao=M('jx_kefu');
+        $packuser=D('PackUser');
+
         $default_stime=strtotime(date("Y-m-d"),time());
         //$default_stime=date("Y-m-d H:i:s",$default_stime);
         $default_etime = strtotime(date("Y-m-d"),time())+60*60*24;
         //$default_etime=date("Y-m-d H:i:s", $default_etime);
-
-        if(!empty($_REQUEST['search_stime']))
+        $search_stime=I("request.search_stime");
+        $search_etime=I("request.search_etime");
+        $qudao=I("request.qudao");
+        $dianpu=I("request.dianpu");
+        $cangwei=I("request.cangwei");
+        $kefu=I("request.kefu");
+        $gongyingshang=I("request.gongyingshang");
+        $title=I("request.title");
+        $sku=I("request.sku");
+        $order_id=I("request.order_id");
+        if(!empty($search_stime))
         {
-            $search_stime=strtotime($_REQUEST['search_stime']);
+            $search_stime=strtotime($search_stime);
         }
         else
         {
             $search_stime=$default_stime;
         }
         $search_stime=date('Y-m-d H:i:s',$search_stime);
-        if(!empty($_REQUEST['search_etime']))
+
+        if(!empty($search_etime))
         {
-            $search_etime=strtotime($_REQUEST['search_etime']);
+            $search_etime=strtotime($search_etime);
         }
         else
         {
             $search_etime=$default_etime;
         }
         $search_etime=date('Y-m-d H:i:s',$search_etime);
-        $jixiao=M('jx_kefu');
-        $packuser=D('PackUser');
-
         $arraywhere=" 1=1 and (luru_dt >='".$search_stime."' and luru_dt <='".$search_etime."')";
-
         //修改
-        if(!empty($_REQUEST['qudao']))
+        if(!empty($qudao))
         {
-            $arraywhere.=" and qudao like '%".trim($_REQUEST["qudao"])."%' ";
+            $arraywhere.=" and qudao like '%".trim($qudao)."%' ";
         }
-        if(!empty($_REQUEST['dianpu']))
+        if(!empty($dianpu))
         {
-            $arraywhere.=" and dianpu like '%".trim($_REQUEST["dianpu"])."%' ";
+            $arraywhere.=" and dianpu like '%".trim($dianpu)."%' ";
         }
-        if(!empty($_REQUEST['cangwei']))
+        if(!empty($cangwei))
         {
-            $arraywhere.=" and cangwei_name like '%".trim($_REQUEST["cangwei"])."%' ";
+            $arraywhere.=" and cangwei_name like '%".trim($cangwei)."%' ";
         }
-        if(!empty($_REQUEST['kefu']))//转化成ID
+        if(!empty($kefu))//转化成ID
         {
-            $lururen=$packuser->where("user_login like '%".trim($_REQUEST['kefu'])."%'")->getfield('id');
+            $lururen=$packuser->where("user_login like '%".trim($kefu)."%'")->getfield('id');
             $arraywhere.=" and luru_id ='".$lururen."' ";
         }
 
-        if(!empty($_REQUEST['gongyingshang']))
+        if(!empty($gongyingshang))
         {
-            $arraywhere.=" and gongyingshang like '%".trim($_REQUEST["gongyingshang"])."%' ";
+            $arraywhere.=" and gongyingshang like '%".trim($gongyingshang)."%' ";
         }
-        if(!empty($_REQUEST['title']))
+        if(!empty($title))
         {
-            $arraywhere.=" and pinlei like '%".trim($_REQUEST["title"])."%' ";
+            $arraywhere.=" and pinlei like '%".trim($title)."%' ";
         }
-        if(!empty($_REQUEST['sku']))
+        if(!empty($sku))
         {
-            $arraywhere.=" and sku like '%".trim($_REQUEST["sku"])."%' ";
+            $arraywhere.=" and sku like '%".trim($sku)."%' ";
         }
-        if(!empty($_REQUEST['order_id']))
+        if(!empty($order_id))
         {
-            $arraywhere.=" and order_id like '%".trim($_REQUEST["order_id"])."%' ";
+            $arraywhere.=" and order_id like '%".trim($order_id)."%' ";
         }
         $list=$jixiao->where($arraywhere)->order('luru_dt asc')->select();
         //dump($jixiao->getLastSql());
@@ -453,7 +482,8 @@ class JixiaoController extends BaseController
 
 
             $id = ($i + 1);
-            $user_login=$packuser->where("id=".$list[$i]['luru_id'])->getfield('user_login');
+            //$user_login=$packuser->where("id=".$list[$i]['luru_id'])->getfield('user_login');
+            $user_login=$packuser->where( array( "id"=>$list[$i]['luru_id'] ) )->getfield('user_login');
             //计算提成
             $ticheng=$this->get_kefu_tc($list[$i]['pingtai_name'],$list[$i]['payment']);
 
@@ -491,7 +521,7 @@ class JixiaoController extends BaseController
     public function get_kefu_tc($qudao,$payment)
     {
         $conf=M('config_jx_kefu');
-        $list=$conf->where("qudao='".$qudao."'")->find();
+        $list=$conf->where( array("qudao"=>$qudao) )->find();
 
         $ticheng=0;
         if($payment<$list['qujian1'])
@@ -512,15 +542,7 @@ class JixiaoController extends BaseController
 
         return $ticheng;
     }
-    public function test()
-    {
-        $res=$this->get_kefu_tc("天猫",180);
-        dump($res);
-    }
-    public function test2()
-    {
 
-    }
 //all end	
 }
 ?>

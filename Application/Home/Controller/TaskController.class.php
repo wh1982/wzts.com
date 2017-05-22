@@ -109,6 +109,8 @@ class TaskController extends BaseController
 
         }
     }
+
+    //change
     public function task_day_origin_tm_order_update()//每日定时作业抓取增量数据
     {
         header("Content-Type:text/html; charset=utf-8");

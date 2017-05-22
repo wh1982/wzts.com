@@ -30,7 +30,9 @@ return array(
     'RBAC_USER_TABLE'   => 'lb_rbac_role_user',
     'RBAC_ACCESS_TABLE' => 'lb_rbac_access',
     'RBAC_NODE_TABLE'   => 'lb_rbac_node',
-
+    //配置
+    'QUDAO_LIST'=>'天猫,京东,淘宝',
+    'DIANPU_LIST'=>'天猫领般旗舰店,京东领般旗舰店',
 
 
 
